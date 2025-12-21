@@ -33,12 +33,12 @@ class GameTests(unittest.TestCase):
     def test_can_go_back_to_previous_node(self):
         state = {"node_id": self.story["start"], "history_stack": [], "mode": "normal"}
         state, _, _ = step(state, "1", self.story)
-        state, _, _ = step(state, "#", self.story)
+        state, _, _ = step(state, "8", self.story)
         self.assertEqual(state["node_id"], self.story["start"])
 
     def test_back_at_start_shows_message(self):
         state = {"node_id": self.story["start"], "history_stack": [], "mode": "normal"}
-        state, output_lines, _ = step(state, "#", self.story)
+        state, output_lines, _ = step(state, "8", self.story)
         self.assertEqual(state["node_id"], self.story["start"])
         self.assertIn("无法后退，已经在起点。", output_lines)
 

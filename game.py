@@ -100,7 +100,7 @@ def _render_normal(story: dict, node_id: str, flags):
     lines = [node["text"], "请选择："]
     for index, choice in enumerate(get_choices(story, node_id, flags), start=1):
         lines.append(f"{index}. {choice['text']}")
-    lines.append("输入 0 查看帮助，9 退出，# 后退。")
+    lines.append("输入 0 查看帮助，9 退出，8 后退。")
     return lines
 
 
@@ -140,7 +140,7 @@ def step(state: dict, user_input: str, story: dict):
         return state, output_lines, False
 
     if trimmed == "0":
-        output_lines.append("帮助：输入 1..N 选择，# 后退，9 退出。")
+        output_lines.append("帮助：输入 1..N 选择，8 后退，9 退出。")
         output_lines.extend(_render_normal(story, state["node_id"], flags))
         return state, output_lines, False
 
@@ -148,7 +148,7 @@ def step(state: dict, user_input: str, story: dict):
         output_lines.append("已退出游戏。")
         return state, output_lines, True
 
-    if trimmed == "#":
+    if trimmed == "8":
         if history:
             new_node_id = history.pop()
             state = {
