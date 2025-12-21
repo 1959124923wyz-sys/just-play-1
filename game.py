@@ -71,6 +71,80 @@ def apply_choice(story: dict, node_id: str, choice_index: int):
     return choices[choice_index - 1]["next"]
 
 
+def _render_normal(story: dict, node_id: str):
+    node = story["nodes"][node_id]
+    lines = [node["text"], "请选择："]
+    for index, choice in enumerate(get_choices(story, node_id), start=1):
+        lines.append(f"{index}. {choice['text']}")
+    lines.append("输入 0 查看帮助，9 退出，# 后退。")
+    return lines
+
+
+def _render_ending(story: dict, node_id: str):
+    node = story["nodes"][node_id]
+    return [node["text"], "结局：输入 1 重开，9 退出。"]
+
+
+def step(state: dict, user_input: str, story: dict):
+    output_lines = []
+    trimmed = user_input.strip()
+
+    if trimmed == "":
+        if state["mode"] == "ending":
+            output_lines.extend(_render_ending(story, state["node_id"]))
+        else:
+            output_lines.extend(_render_normal(story, state["node_id"]))
+        return state, output_lines, False
+
+    if state["mode"] == "ending":
+        if trimmed == "1":
+            new_state = {"node_id": story["start"], "history_stack": [], "mode": "normal"}
+            output_lines.extend(_render_normal(story, new_state["node_id"]))
+            return new_state, output_lines, False
+        if trimmed == "9":
+            output_lines.append("已退出游戏。")
+            return state, output_lines, True
+        output_lines.append("无效输入")
+        output_lines.extend(_render_ending(story, state["node_id"]))
+        return state, output_lines, False
+
+    if trimmed == "0":
+        output_lines.append("帮助：输入 1..N 选择，# 后退，9 退出。")
+        output_lines.extend(_render_normal(story, state["node_id"]))
+        return state, output_lines, False
+
+    if trimmed == "9":
+        output_lines.append("已退出游戏。")
+        return state, output_lines, True
+
+    if trimmed == "#":
+        if state["history_stack"]:
+            new_node_id = state["history_stack"].pop()
+            state = {"node_id": new_node_id, "history_stack": state["history_stack"], "mode": "normal"}
+        else:
+            output_lines.append("无法后退，已经在起点。")
+        output_lines.extend(_render_normal(story, state["node_id"]))
+        return state, output_lines, False
+
+    if trimmed.isdigit():
+        choice_index = int(trimmed)
+        choices = get_choices(story, state["node_id"])
+        if 1 <= choice_index <= len(choices):
+            next_node_id = apply_choice(story, state["node_id"], choice_index)
+            history = state["history_stack"] + [state["node_id"]]
+            if story["nodes"][next_node_id].get("ending"):
+                state = {"node_id": next_node_id, "history_stack": history, "mode": "ending"}
+                output_lines.extend(_render_ending(story, next_node_id))
+            else:
+                state = {"node_id": next_node_id, "history_stack": history, "mode": "normal"}
+                output_lines.extend(_render_normal(story, next_node_id))
+            return state, output_lines, False
+
+    output_lines.append("无效输入")
+    output_lines.extend(_render_normal(story, state["node_id"]))
+    return state, output_lines, False
+
+
 def run_game(story_path: str = "story.json", input_fn=input, output_fn=print):
     try:
         story = load_story(story_path)
@@ -80,34 +154,17 @@ def run_game(story_path: str = "story.json", input_fn=input, output_fn=print):
         return 1
 
     output_fn(f"=== {story['title']} ===")
-    node_id = story["start"]
+    state = {"node_id": story["start"], "history_stack": [], "mode": "normal"}
+    for line in _render_normal(story, state["node_id"]):
+        output_fn(line)
 
     while True:
-        node = story["nodes"][node_id]
-        output_fn(node["text"])
-        if node.get("ending"):
-            output_fn("已到达结局，游戏结束。")
+        user_input = input_fn("> ")
+        state, output_lines, should_exit = step(state, user_input, story)
+        for line in output_lines:
+            output_fn(line)
+        if should_exit:
             return 0
-
-        choices = get_choices(story, node_id)
-        output_fn("请选择：")
-        for index, choice in enumerate(choices, start=1):
-            output_fn(f"{index}. {choice['text']}")
-        output_fn("输入 0 查看帮助，9 退出。")
-
-        user_input = input_fn("> ").strip()
-        if user_input == "0":
-            output_fn("帮助：输入 1/2/3... 选择选项，输入 9 退出游戏。")
-            continue
-        if user_input == "9":
-            output_fn("已退出游戏。")
-            return 0
-        if user_input.isdigit():
-            choice_index = int(user_input)
-            if 1 <= choice_index <= len(choices):
-                node_id = apply_choice(story, node_id, choice_index)
-                continue
-        output_fn("无效输入")
 
 
 if __name__ == "__main__":
