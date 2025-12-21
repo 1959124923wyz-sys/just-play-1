@@ -1,0 +1,37 @@
+{
+  "title": "迷雾中的选择",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text": "你在迷雾中醒来，前方有两条路。",
+      "choices": [
+        {"text": "走向光亮", "next": "light"},
+        {"text": "走进森林", "next": "forest"}
+      ]
+    },
+    "light": {
+      "text": "光亮处是一座小屋，门微微敞开。",
+      "choices": [
+        {"text": "敲门", "next": "home"},
+        {"text": "绕到后门", "next": "forest"}
+      ]
+    },
+    "forest": {
+      "text": "森林很安静，你听到脚步声靠近。",
+      "choices": [
+        {"text": "躲起来", "next": "home"},
+        {"text": "大声呼救", "next": "ending"}
+      ]
+    },
+    "home": {
+      "text": "屋主邀请你进屋休息，你找到一张地图。",
+      "choices": [
+        {"text": "按照地图离开", "next": "ending"}
+      ]
+    },
+    "ending": {
+      "text": "你成功走出迷雾，迎来新的旅程。",
+      "ending": true
+    }
+  }
+}
