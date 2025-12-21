@@ -1,0 +1,266 @@
+{
+  "title": "汴梁迷局",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text": "汴梁夜雨，你在案发巷口醒来，衣角沾着血迹。巡卒脚步逼近。提示：输入 1/2/3... 选择，0 帮助，9 退出，# 后退，回车重显。",
+      "choices": [
+        {"text": "追向消失的黑影", "next": "shadow_chase"},
+        {"text": "躲进暗巷深处", "next": "forest"},
+        {"text": "直接去开封府报案", "next": "yamen_gate"}
+      ]
+    },
+    "forest": {
+      "text": "暗巷如林，雨水掩盖了脚印。远处传来低语。",
+      "choices": [
+        {"text": "循着低语靠近", "next": "whisper_alley"},
+        {"text": "原地等待看清来者", "next": "ending"},
+        {"text": "翻墙进入后院", "next": "courtyard"}
+      ]
+    },
+    "ending": {
+      "text": "结局【沉默即罪】：你在暗巷被巡卒当场按下，命运就此改写。",
+      "ending": true
+    },
+    "shadow_chase": {
+      "text": "黑影越过屋脊，你被迫选择去路。",
+      "choices": [
+        {"text": "追上屋顶", "next": "rooftop"},
+        {"text": "绕行小桥截堵", "next": "bridge"}
+      ]
+    },
+    "yamen_gate": {
+      "text": "开封府门前灯火明亮，判官正候消息。",
+      "choices": [
+        {"text": "如实交代现场所见", "next": "magistrate"},
+        {"text": "隐瞒血迹，求官差庇护", "next": "false_testimony"}
+      ]
+    },
+    "whisper_alley": {
+      "text": "低语来自一名茶坊伙计，他神色慌张。",
+      "choices": [
+        {"text": "盘问他是否目击", "next": "teahouse_clue"},
+        {"text": "塞银让他闭嘴", "next": "bribe_silence"}
+      ]
+    },
+    "courtyard": {
+      "text": "后院灯影摇晃，一名贵妇急匆匆离去。",
+      "choices": [
+        {"text": "跟踪贵妇", "next": "lady_follow"},
+        {"text": "翻找院内线索", "next": "courtyard_search"}
+      ]
+    },
+    "rooftop": {
+      "text": "屋顶湿滑，你看见黑影落入一座书坊。",
+      "choices": [
+        {"text": "冲入书坊", "next": "bookshop"},
+        {"text": "先观察周围是否埋伏", "next": "rooftop_watch"}
+      ]
+    },
+    "bridge": {
+      "text": "小桥流水，黑影果然从桥下出现。",
+      "choices": [
+        {"text": "当面截住", "next": "faceoff"},
+        {"text": "暗中尾随", "next": "tail"}
+      ]
+    },
+    "magistrate": {
+      "text": "判官让你协助查案，递来一份卷宗。",
+      "choices": [
+        {"text": "接下卷宗查线索", "next": "casefile"},
+        {"text": "请求调阅宫中往来名册", "next": "palace_records"}
+      ]
+    },
+    "false_testimony": {
+      "text": "你话锋闪烁，判官目光一沉。",
+      "choices": [
+        {"text": "改口坦白", "next": "magistrate"},
+        {"text": "坚持隐瞒", "next": "ending_scapegoat"}
+      ]
+    },
+    "teahouse_clue": {
+      "text": "伙计交出一枚带血玉佩，似与禁军有关。",
+      "choices": [
+        {"text": "交给开封府", "next": "magistrate"},
+        {"text": "私下追查玉佩来源", "next": "pawnshop"}
+      ]
+    },
+    "bribe_silence": {
+      "text": "他收下银子，却提及“坊主今夜异常”。",
+      "choices": [
+        {"text": "去书坊探查", "next": "bookshop"},
+        {"text": "去坊主住处", "next": "patron_house"}
+      ]
+    },
+    "lady_follow": {
+      "text": "贵妇进了画舫，河面传来歌声。",
+      "choices": [
+        {"text": "登船打探", "next": "boat"},
+        {"text": "守在岸边观察", "next": "dock"}
+      ]
+    },
+    "courtyard_search": {
+      "text": "你发现一封密信，提及“鹤使”与“换名”。",
+      "choices": [
+        {"text": "带信去找判官", "next": "magistrate"},
+        {"text": "追查鹤使身份", "next": "crane_agent"}
+      ]
+    },
+    "bookshop": {
+      "text": "书坊内堆满账册，一名掌柜面色苍白。",
+      "choices": [
+        {"text": "逼问掌柜", "next": "bookshop_confess"},
+        {"text": "翻查账册", "next": "ledger"},
+        {"text": "放他离开，暗中跟踪", "next": "tail"}
+      ]
+    },
+    "rooftop_watch": {
+      "text": "你看到两名禁军自街角现身，似在搜捕。",
+      "choices": [
+        {"text": "露面求助", "next": "palace_records"},
+        {"text": "悄然撤离", "next": "alleys"}
+      ]
+    },
+    "faceoff": {
+      "text": "黑影露出面容，竟是熟悉的旧友。",
+      "choices": [
+        {"text": "劝他自首", "next": "ending_truth"},
+        {"text": "放他一马", "next": "ending_coverup"}
+      ]
+    },
+    "tail": {
+      "text": "你尾随黑影至一处宅邸，门上刻着“顾”。",
+      "choices": [
+        {"text": "硬闯入内", "next": "patron_house"},
+        {"text": "潜伏等待主人现身", "next": "stakeout"}
+      ]
+    },
+    "casefile": {
+      "text": "卷宗记录牵扯朝堂权贵与巨额军饷。",
+      "choices": [
+        {"text": "继续追查军饷流向", "next": "ledger"},
+        {"text": "将卷宗交给御史", "next": "ending_whistle"}
+      ]
+    },
+    "ending_whistle": {
+      "text": "结局【孤注一掷】：你将卷宗递给御史台，却被权势反噬，真相被封存。",
+      "ending": true
+    },
+    "palace_records": {
+      "text": "名册显示当夜有密使出入，姓名被涂改。",
+      "choices": [
+        {"text": "追查涂改者", "next": "crane_agent"},
+        {"text": "交回判官，稳步推进", "next": "magistrate"}
+      ]
+    },
+    "pawnshop": {
+      "text": "当铺老板认出玉佩，指向顾家后宅。",
+      "choices": [
+        {"text": "立刻前往顾宅", "next": "patron_house"},
+        {"text": "先去河口打探顾家船只", "next": "dock"}
+      ]
+    },
+    "patron_house": {
+      "text": "顾宅灯火阑珊，门口守着几名陌生武人。",
+      "choices": [
+        {"text": "表明身份求见", "next": "meeting"},
+        {"text": "潜入内院", "next": "secret_room"},
+        {"text": "退回街巷布置退路", "next": "alleys"}
+      ]
+    },
+    "boat": {
+      "text": "画舫内酒香浮动，你听到“替罪羊”三字。",
+      "choices": [
+        {"text": "偷听更多", "next": "boat_listen"},
+        {"text": "亮出身份盘问", "next": "ending_scapegoat"}
+      ]
+    },
+    "dock": {
+      "text": "码头有一艘急撤的快船，船夫神色紧张。",
+      "choices": [
+        {"text": "追船离开汴梁", "next": "ending_escape"},
+        {"text": "拦下船夫盘问", "next": "boat_listen"}
+      ]
+    },
+    "crane_agent": {
+      "text": "鹤使是宫中密探，他提出交换利益。",
+      "choices": [
+        {"text": "答应合作", "next": "ending_conspiracy"},
+        {"text": "拒绝并告发", "next": "ending_silenced"}
+      ]
+    },
+    "ledger": {
+      "text": "账册记录着禁军私银流向，落款为顾某。",
+      "choices": [
+        {"text": "交给开封府追查", "next": "ending_truth"},
+        {"text": "自保隐藏账册", "next": "ending_escape"}
+      ]
+    },
+    "bookshop_confess": {
+      "text": "掌柜承认是替顾家转移账册。",
+      "choices": [
+        {"text": "带他见判官", "next": "ending_truth"},
+        {"text": "放走掌柜换取好处", "next": "ending_coverup"}
+      ]
+    },
+    "alleys": {
+      "text": "你在暗巷绕行，听见两名杀手商量灭口。",
+      "choices": [
+        {"text": "设伏反制", "next": "ending_truth"},
+        {"text": "逃离汴梁", "next": "ending_escape"}
+      ]
+    },
+    "stakeout": {
+      "text": "你等来顾家管事，他与禁军低声交易。",
+      "choices": [
+        {"text": "立即上报开封府", "next": "ending_truth"},
+        {"text": "索取封口费", "next": "ending_coverup"}
+      ]
+    },
+    "meeting": {
+      "text": "顾家当主提出交易，你可以选择立场。",
+      "choices": [
+        {"text": "接受交易保全自身", "next": "ending_coverup"},
+        {"text": "暗中留证据", "next": "secret_room"}
+      ]
+    },
+    "secret_room": {
+      "text": "密室里藏着一具尸首和换名文书。",
+      "choices": [
+        {"text": "交给开封府", "next": "ending_truth"},
+        {"text": "烧毁文书，装作不知", "next": "ending_escape"}
+      ]
+    },
+    "boat_listen": {
+      "text": "你确认有人准备推替罪羊顶罪。",
+      "choices": [
+        {"text": "阻止并抓捕幕后", "next": "ending_truth"},
+        {"text": "顺势成为替罪羊", "next": "ending_scapegoat"}
+      ]
+    },
+    "ending_truth": {
+      "text": "结局【真凶落网】：你提交证据，幕后权贵被擒，汴梁暂得清明。",
+      "ending": true
+    },
+    "ending_scapegoat": {
+      "text": "结局【替罪羊】：你被推为凶手，权力之网将你吞没。",
+      "ending": true
+    },
+    "ending_escape": {
+      "text": "结局【自保逃离】：你远走他乡，真相被埋在汴梁夜雨中。",
+      "ending": true
+    },
+    "ending_silenced": {
+      "text": "结局【被灭口】：你拒绝交易，当夜便被无声带走。",
+      "ending": true
+    },
+    "ending_conspiracy": {
+      "text": "结局【反转同谋】：你与密探达成交易，成为新的棋子。",
+      "ending": true
+    },
+    "ending_coverup": {
+      "text": "结局【权力遮蔽】：你为权贵遮掩，换来短暂安稳。",
+      "ending": true
+    }
+  }
+}
