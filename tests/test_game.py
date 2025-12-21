@@ -20,7 +20,7 @@ class GameTests(unittest.TestCase):
 
     def test_choice_jumps_to_correct_node(self):
         start = self.story["start"]
-        next_node = apply_choice(self.story, start, 1)
+        next_node, _ = apply_choice(self.story, start, 1, set())
         choices = get_choices(self.story, start)
         self.assertEqual(next_node, choices[0]["next"])
 
@@ -52,6 +52,47 @@ class GameTests(unittest.TestCase):
         self.assertEqual(state["node_id"], self.story["start"])
         self.assertEqual(state["history_stack"], [])
         self.assertEqual(state["mode"], "normal")
+
+    def test_set_flags_applied(self):
+        story = {
+            "title": "测试",
+            "start": "start",
+            "nodes": {
+                "start": {
+                    "text": "起点",
+                    "choices": [
+                        {"text": "拿线索", "next": "next", "set_flags": ["clue"]},
+                        {"text": "等待", "next": "next"},
+                    ],
+                },
+                "next": {"text": "继续", "choices": [{"text": "回去", "next": "start"}]},
+            },
+        }
+        validate_story(story)
+        state = {"node_id": "start", "history_stack": [], "mode": "normal", "flags": set()}
+        state, _, _ = step(state, "1", story)
+        self.assertIn("clue", state["flags"])
+
+    def test_requires_filters_choices(self):
+        story = {
+            "title": "测试",
+            "start": "start",
+            "nodes": {
+                "start": {
+                    "text": "起点",
+                    "choices": [
+                        {"text": "获取线索", "next": "start", "set_flags": ["clue"]},
+                        {"text": "隐藏选项", "next": "secret", "requires": ["clue"]},
+                    ],
+                },
+                "secret": {"text": "秘密结局", "ending": True},
+            },
+        }
+        validate_story(story)
+        choices_without = get_choices(story, "start", set())
+        self.assertEqual(len(choices_without), 1)
+        choices_with = get_choices(story, "start", {"clue"})
+        self.assertEqual(len(choices_with), 2)
 
     def test_empty_input_renders_without_change(self):
         state = {"node_id": self.story["start"], "history_stack": [], "mode": "normal"}

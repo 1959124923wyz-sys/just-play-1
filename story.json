@@ -82,7 +82,7 @@
       "text": "伙计交出一枚带血玉佩，似与禁军有关。",
       "choices": [
         {"text": "交给开封府", "next": "magistrate"},
-        {"text": "私下追查玉佩来源", "next": "pawnshop"}
+        {"text": "私下追查玉佩来源", "next": "pawnshop", "set_flags": ["clue_pendant"]}
       ]
     },
     "bribe_silence": {
@@ -156,7 +156,7 @@
     "pawnshop": {
       "text": "当铺老板认出玉佩，指向顾家后宅。",
       "choices": [
-        {"text": "立刻前往顾宅", "next": "patron_house"},
+        {"text": "立刻前往顾宅", "next": "patron_house", "requires": ["clue_pendant"]},
         {"text": "先去河口打探顾家船只", "next": "dock"}
       ]
     },
@@ -164,7 +164,12 @@
       "text": "顾宅灯火阑珊，门口守着几名陌生武人。",
       "choices": [
         {"text": "表明身份求见", "next": "meeting"},
-        {"text": "潜入内院", "next": "secret_room"},
+        {
+          "text": "潜入内院",
+          "next": "secret_room",
+          "requires": ["clue_pendant"],
+          "set_flags": ["clue_secret"]
+        },
         {"text": "退回街巷布置退路", "next": "alleys"}
       ]
     },
@@ -228,8 +233,17 @@
       "text": "密室里藏着一具尸首和换名文书。",
       "choices": [
         {"text": "交给开封府", "next": "ending_truth"},
-        {"text": "烧毁文书，装作不知", "next": "ending_escape"}
+        {"text": "烧毁文书，装作不知", "next": "ending_escape"},
+        {
+          "text": "携文书投向鹤使",
+          "next": "ending_hidden",
+          "requires": ["clue_pendant", "clue_secret"]
+        }
       ]
+    },
+    "ending_hidden": {
+      "text": "结局【隐秘交易】：你携文书投向鹤使，换来短暂庇护，却被更深的阴影吞噬。",
+      "ending": true
     },
     "boat_listen": {
       "text": "你确认有人准备推替罪羊顶罪。",
