@@ -156,6 +156,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_1"
         }
       ]
     },
@@ -189,6 +193,16 @@
         {
           "text": "直面抉择",
           "next": "ending_justice_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_7",
+          "requires": [
+            "clue_letter"
+          ],
+          "set_flags": [
+            "state_clue_letter"
+          ]
         }
       ]
     },
@@ -218,6 +232,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_2"
         }
       ]
     },
@@ -254,6 +272,16 @@
           "requires": [
             "item_seal"
           ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_11",
+          "requires": [
+            "trust_magistrate"
+          ],
+          "set_flags": [
+            "state_trust_magistrate"
+          ]
         }
       ]
     },
@@ -284,6 +312,16 @@
         {
           "text": "直面抉择",
           "next": "ending_justice_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_13",
+          "requires": [
+            "clue_letter"
+          ],
+          "set_flags": [
+            "state_clue_letter"
+          ]
         }
       ]
     },
@@ -310,6 +348,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_3"
         }
       ]
     },
@@ -343,6 +385,14 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_1",
+          "requires": [
+            "clue_letter",
+            "item_seal"
+          ]
         }
       ]
     },
@@ -373,6 +423,16 @@
         {
           "text": "直面抉择",
           "next": "ending_justice_3"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_19",
+          "requires": [
+            "trust_magistrate"
+          ],
+          "set_flags": [
+            "state_trust_magistrate"
+          ]
         }
       ]
     },
@@ -386,6 +446,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_4"
         }
       ]
     },
@@ -419,6 +483,14 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_justice_5",
+          "requires": [
+            "clue_letter",
+            "trust_magistrate"
+          ]
         }
       ]
     },
@@ -445,6 +517,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_5"
         }
       ]
     },
@@ -475,6 +551,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_justice_6",
+          "requires": [
+            "clue_letter"
+          ]
         }
       ]
     },
@@ -501,6 +584,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_6"
         }
       ]
     },
@@ -546,7 +633,10 @@
         },
         {
           "text": "回到人群中整理思路",
-          "next": "justice_hub"
+          "next": "justice_hub",
+          "set_flags": [
+            "state_branch"
+          ]
         }
       ]
     },
@@ -602,6 +692,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_1"
         }
       ]
     },
@@ -635,6 +729,16 @@
         {
           "text": "直面抉择",
           "next": "ending_brothel_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_7",
+          "requires": [
+            "trust_courtesan"
+          ],
+          "set_flags": [
+            "state_trust_courtesan"
+          ]
         }
       ]
     },
@@ -680,6 +784,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_2"
         }
       ]
     },
@@ -699,6 +807,16 @@
           "next": "ending_brothel_2",
           "requires": [
             "trust_spy"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_11",
+          "requires": [
+            "clue_mask"
+          ],
+          "set_flags": [
+            "state_clue_mask"
           ]
         }
       ]
@@ -730,6 +848,16 @@
         {
           "text": "直面抉择",
           "next": "ending_brothel_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_13",
+          "requires": [
+            "trust_courtesan"
+          ],
+          "set_flags": [
+            "state_trust_courtesan"
+          ]
         }
       ]
     },
@@ -743,6 +871,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_3"
         }
       ]
     },
@@ -789,6 +921,14 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_2",
+          "requires": [
+            "trust_courtesan",
+            "clue_mask"
+          ]
         }
       ]
     },
@@ -819,6 +959,10 @@
         {
           "text": "直面抉择",
           "next": "ending_brothel_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_4"
         }
       ]
     },
@@ -865,6 +1009,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
         }
       ]
     },
@@ -878,6 +1029,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_5"
         }
       ]
     },
@@ -921,6 +1076,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_brothel_6",
+          "requires": [
+            "clue_mask"
+          ]
         }
       ]
     },
@@ -934,6 +1096,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_6"
         }
       ]
     },
@@ -992,7 +1158,10 @@
         },
         {
           "text": "回到人群中整理思路",
-          "next": "brothel_hub"
+          "next": "brothel_hub",
+          "set_flags": [
+            "state_branch"
+          ]
         }
       ]
     },
@@ -1048,6 +1217,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_1"
         }
       ]
     },
@@ -1081,6 +1254,16 @@
         {
           "text": "直面抉择",
           "next": "ending_fugitive_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_7",
+          "requires": [
+            "state_fugitive"
+          ],
+          "set_flags": [
+            "state_state_fugitive"
+          ]
         }
       ]
     },
@@ -1126,6 +1309,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_2"
         }
       ]
     },
@@ -1145,6 +1332,16 @@
           "next": "ending_fugitive_2",
           "requires": [
             "item_sword"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_11",
+          "requires": [
+            "clue_witness"
+          ],
+          "set_flags": [
+            "state_clue_witness"
           ]
         }
       ]
@@ -1176,6 +1373,16 @@
         {
           "text": "直面抉择",
           "next": "ending_fugitive_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_13",
+          "requires": [
+            "state_fugitive"
+          ],
+          "set_flags": [
+            "state_state_fugitive"
+          ]
         }
       ]
     },
@@ -1189,6 +1396,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_3"
         }
       ]
     },
@@ -1235,6 +1446,14 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_3",
+          "requires": [
+            "clue_witness",
+            "item_token"
+          ]
         }
       ]
     },
@@ -1265,6 +1484,10 @@
         {
           "text": "直面抉择",
           "next": "ending_fugitive_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_4"
         }
       ]
     },
@@ -1311,6 +1534,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
         }
       ]
     },
@@ -1324,6 +1554,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_5"
         }
       ]
     },
@@ -1367,6 +1601,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_fugitive_6",
+          "requires": [
+            "clue_witness"
+          ]
         }
       ]
     },
@@ -1380,6 +1621,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_6"
         }
       ]
     },
@@ -1438,7 +1683,10 @@
         },
         {
           "text": "回到人群中整理思路",
-          "next": "fugitive_hub"
+          "next": "fugitive_hub",
+          "set_flags": [
+            "state_branch"
+          ]
         }
       ]
     },
@@ -1494,6 +1742,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_1"
         }
       ]
     },
@@ -1527,6 +1779,16 @@
         {
           "text": "直面抉择",
           "next": "ending_revenge_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_7",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
+          ]
         }
       ]
     },
@@ -1572,6 +1834,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_2"
         }
       ]
     },
@@ -1591,6 +1857,16 @@
           "next": "ending_revenge_2",
           "requires": [
             "state_revenge"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_11",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
           ]
         }
       ]
@@ -1622,6 +1898,16 @@
         {
           "text": "直面抉择",
           "next": "ending_revenge_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_13",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
+          ]
         }
       ]
     },
@@ -1635,6 +1921,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_3"
         }
       ]
     },
@@ -1711,6 +2001,10 @@
         {
           "text": "直面抉择",
           "next": "ending_revenge_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_4"
         }
       ]
     },
@@ -1757,6 +2051,13 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
         }
       ]
     },
@@ -1770,6 +2071,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_5"
         }
       ]
     },
@@ -1813,6 +2118,14 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_revenge_6",
+          "requires": [
+            "clue_dagger",
+            "state_revenge"
+          ]
         }
       ]
     },
@@ -1826,6 +2139,10 @@
         {
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_6"
         }
       ]
     },
@@ -1884,7 +2201,10 @@
         },
         {
           "text": "回到人群中整理思路",
-          "next": "revenge_hub"
+          "next": "revenge_hub",
+          "set_flags": [
+            "state_branch"
+          ]
         }
       ]
     },
@@ -2011,6 +2331,374 @@
     "ending_extra_4": {
       "text": "结局【灯市残梦】：你在灯市寻得答案，却失去故人。",
       "ending": true
+    },
+    "justice_unique_1": {
+      "text": "你在卷宗夹层发现旧笔迹，指向一名被冷落的前科吏。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_2": {
+      "text": "巡街的卖伞童子提起一把破伞，伞骨里藏着碎纸。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        },
+        {
+          "text": "上交证据",
+          "next": "ending_justice_5",
+          "requires": [
+            "trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_unique_3": {
+      "text": "你在府库门口撞见内侍霍，他的袖口沾着墨。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_4": {
+      "text": "赵掌柜递给你一张账页，低声说‘银流不对’。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        },
+        {
+          "text": "上交证据",
+          "next": "ending_justice_5",
+          "requires": [
+            "trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_unique_5": {
+      "text": "李书生提议换证人，却担心被当作伪证。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_6": {
+      "text": "包校尉让你在夜巡时设局引蛇出洞，暗示有人在府中通风。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "brothel_unique_1": {
+      "text": "苏娘子说今夜的曲子被人换过，词里藏名。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_2": {
+      "text": "阮花魁递给你一枚香囊，隐约有药香。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_3": {
+      "text": "赌坊丁提到一张欠条，欠款人竟是官眷。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "交出密信",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_unique_4": {
+      "text": "幕后小厮透露帘后的贵客总戴面具。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_5": {
+      "text": "你在雅间听到‘换名’二字，桌下有人递信。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "交出密信",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_unique_6": {
+      "text": "灯影下有女子落泪，说自己不是第一次被迫沉默。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "fugitive_unique_1": {
+      "text": "船夫葛指向城外破庙，说有人等你。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_2": {
+      "text": "沈医官说你旧伤未愈，硬逃只会暴露。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_3": {
+      "text": "你在渡口看到周都头的暗号，心里一紧。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_4": {
+      "text": "夜雨中一名老妪递你护身符，称这是为亡者留的路。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "冒险渡河",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
+        }
+      ]
+    },
+    "fugitive_unique_5": {
+      "text": "你偷听到船家议价，提到一块令牌能保命。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_6": {
+      "text": "你在城门口发现追捕告示，画像竟与旧友相似。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "冒险渡河",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_1": {
+      "text": "周都头承认曾失手，愿帮你追根究底。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_2": {
+      "text": "你从尸检册里找出一处不合常理的伤口，像是伪装。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "以血誓起事",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_3": {
+      "text": "内侍霍提出交易：换线索，换沉默。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_4": {
+      "text": "你见到一把旧匕首，刀纹与传闻一致。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "以血誓起事",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_5": {
+      "text": "苏娘子暗示有人在复仇名录上动了笔。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_6": {
+      "text": "你得知被害者生前秘密赴约，地点在城外。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
     }
   }
 }
