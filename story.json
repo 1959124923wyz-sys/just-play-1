@@ -1,0 +1,2704 @@
+{
+  "title": "汴梁迷局：风雨人心",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text": "汴梁夜雨，你在案发巷口醒来，衣角沾着血迹。巡卒脚步逼近。提示：输入 1/2/3... 选择，0 帮助，9 退出，8 后退，回车重显。",
+      "choices": [
+        {
+          "text": "追向消失的黑影",
+          "next": "justice_hub"
+        },
+        {
+          "text": "躲进暗巷深处",
+          "next": "forest"
+        },
+        {
+          "text": "直接去开封府报案",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "forest": {
+      "text": "暗巷如林，雨水掩盖了脚印。远处传来低语。",
+      "choices": [
+        {
+          "text": "循着低语靠近",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "原地等待看清来者",
+          "next": "ending"
+        },
+        {
+          "text": "翻墙进入后院",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "ending": {
+      "text": "结局【沉默即罪】：你在暗巷被巡卒当场按下，命运就此改写。",
+      "ending": true
+    },
+    "justice_hub": {
+      "text": "你追入灯影，包校尉与赵掌柜同时现身，提议走官道查案。",
+      "choices": [
+        {
+          "text": "接受协助，走官道",
+          "next": "justice_1",
+          "set_flags": [
+            "trust_magistrate"
+          ]
+        },
+        {
+          "text": "先自己查线索",
+          "next": "justice_2"
+        }
+      ]
+    },
+    "brothel_hub": {
+      "text": "你绕过府门，转入风月坊。苏娘子与阮花魁在帘后低语。",
+      "choices": [
+        {
+          "text": "向苏娘子打探",
+          "next": "brothel_1",
+          "set_flags": [
+            "trust_courtesan"
+          ]
+        },
+        {
+          "text": "先去赌坊问路",
+          "next": "brothel_2"
+        }
+      ]
+    },
+    "fugitive_hub": {
+      "text": "低语者指向城外逃生道，船夫葛在雨里等价码。",
+      "choices": [
+        {
+          "text": "装作同路，打听消息",
+          "next": "fugitive_1",
+          "set_flags": [
+            "state_fugitive"
+          ]
+        },
+        {
+          "text": "强行夺船逃离",
+          "next": "fugitive_2"
+        }
+      ]
+    },
+    "revenge_hub": {
+      "text": "后院里，周都头冷冷看你，沈医官收起药箱。",
+      "choices": [
+        {
+          "text": "请求周都头相助",
+          "next": "revenge_1",
+          "set_flags": [
+            "trust_guard"
+          ]
+        },
+        {
+          "text": "独自追查凶手",
+          "next": "revenge_2"
+        }
+      ]
+    },
+    "justice_1": {
+      "text": "查案正道第1场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_2"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_2": {
+      "text": "查案正道第2场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "justice_3",
+          "set_flags": [
+            "item_seal"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_3": {
+      "text": "查案正道第3场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_4"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_4": {
+      "text": "查案正道第4场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_5"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_1"
+        }
+      ]
+    },
+    "justice_5": {
+      "text": "查案正道第5场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "justice_6",
+          "set_flags": [
+            "clue_account"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_6": {
+      "text": "查案正道第6场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_7"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_justice_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_7",
+          "requires": [
+            "clue_letter"
+          ],
+          "set_flags": [
+            "state_clue_letter"
+          ]
+        }
+      ]
+    },
+    "justice_7": {
+      "text": "查案正道第7场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_8",
+          "set_flags": [
+            "clue_letter"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_8": {
+      "text": "查案正道第8场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_9"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_2"
+        }
+      ]
+    },
+    "justice_9": {
+      "text": "查案正道第9场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "justice_10",
+          "set_flags": [
+            "item_seal"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_10": {
+      "text": "查案正道第10场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_11"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_justice_2",
+          "requires": [
+            "item_seal"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_11",
+          "requires": [
+            "trust_magistrate"
+          ],
+          "set_flags": [
+            "state_trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_11": {
+      "text": "查案正道第11场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_12"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_12": {
+      "text": "查案正道第12场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_13"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_justice_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_13",
+          "requires": [
+            "clue_letter"
+          ],
+          "set_flags": [
+            "state_clue_letter"
+          ]
+        }
+      ]
+    },
+    "justice_13": {
+      "text": "查案正道第13场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_14"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_14": {
+      "text": "查案正道第14场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_15"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_3"
+        }
+      ]
+    },
+    "justice_15": {
+      "text": "查案正道第15场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_16"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "以官印换通关",
+          "next": "ending_extra_1",
+          "requires": [
+            "item_seal"
+          ]
+        }
+      ]
+    },
+    "justice_16": {
+      "text": "查案正道第16场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_17"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_1",
+          "requires": [
+            "clue_letter",
+            "item_seal"
+          ]
+        }
+      ]
+    },
+    "justice_17": {
+      "text": "查案正道第17场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_18"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_18": {
+      "text": "查案正道第18场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_19"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_justice_3"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "justice_19",
+          "requires": [
+            "trust_magistrate"
+          ],
+          "set_flags": [
+            "state_trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_19": {
+      "text": "查案正道第19场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_20"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_4"
+        }
+      ]
+    },
+    "justice_20": {
+      "text": "查案正道第20场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_21"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_justice_3",
+          "requires": [
+            "clue_account"
+          ]
+        }
+      ]
+    },
+    "justice_21": {
+      "text": "查案正道第21场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_22"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_justice_5",
+          "requires": [
+            "clue_letter",
+            "trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_22": {
+      "text": "查案正道第22场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_23"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_23": {
+      "text": "查案正道第23场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_24"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_5"
+        }
+      ]
+    },
+    "justice_24": {
+      "text": "查案正道第24场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_25"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_justice_4"
+        }
+      ]
+    },
+    "justice_25": {
+      "text": "查案正道第25场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_26"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_justice_6",
+          "requires": [
+            "clue_letter"
+          ]
+        }
+      ]
+    },
+    "justice_26": {
+      "text": "查案正道第26场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_27"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_27": {
+      "text": "查案正道第27场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_28"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "justice_unique_6"
+        }
+      ]
+    },
+    "justice_28": {
+      "text": "查案正道第28场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_29"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_justice_3",
+          "requires": [
+            "clue_account"
+          ]
+        }
+      ]
+    },
+    "justice_29": {
+      "text": "查案正道第29场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_30"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_30": {
+      "text": "查案正道第30场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "justice_hub"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "justice_hub",
+          "set_flags": [
+            "state_branch"
+          ]
+        }
+      ]
+    },
+    "brothel_1": {
+      "text": "风月暗线第1场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_2"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_2": {
+      "text": "风月暗线第2场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "brothel_3",
+          "set_flags": [
+            "trust_spy"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_3": {
+      "text": "风月暗线第3场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_4"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_4": {
+      "text": "风月暗线第4场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_5"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_1"
+        }
+      ]
+    },
+    "brothel_5": {
+      "text": "风月暗线第5场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "brothel_6",
+          "set_flags": [
+            "state_blackmail"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_6": {
+      "text": "风月暗线第6场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_7"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_brothel_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_7",
+          "requires": [
+            "trust_courtesan"
+          ],
+          "set_flags": [
+            "state_trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_7": {
+      "text": "风月暗线第7场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_8",
+          "set_flags": [
+            "clue_mask"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_8": {
+      "text": "风月暗线第8场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_9"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_9": {
+      "text": "风月暗线第9场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "brothel_10",
+          "set_flags": [
+            "trust_spy"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_2"
+        }
+      ]
+    },
+    "brothel_10": {
+      "text": "风月暗线第10场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_11"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_brothel_2",
+          "requires": [
+            "trust_spy"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_11",
+          "requires": [
+            "clue_mask"
+          ],
+          "set_flags": [
+            "state_clue_mask"
+          ]
+        }
+      ]
+    },
+    "brothel_11": {
+      "text": "风月暗线第11场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_12"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_12": {
+      "text": "风月暗线第12场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_13"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_brothel_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "brothel_13",
+          "requires": [
+            "trust_courtesan"
+          ],
+          "set_flags": [
+            "state_trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_13": {
+      "text": "风月暗线第13场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_14"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_3"
+        }
+      ]
+    },
+    "brothel_14": {
+      "text": "风月暗线第14场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_15"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_15": {
+      "text": "风月暗线第15场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_16"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "交出黑账自保",
+          "next": "ending_extra_2",
+          "requires": [
+            "state_blackmail"
+          ]
+        }
+      ]
+    },
+    "brothel_16": {
+      "text": "风月暗线第16场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_17"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_2",
+          "requires": [
+            "trust_courtesan",
+            "clue_mask"
+          ]
+        }
+      ]
+    },
+    "brothel_17": {
+      "text": "风月暗线第17场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_18"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_18": {
+      "text": "风月暗线第18场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_19"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_brothel_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_4"
+        }
+      ]
+    },
+    "brothel_19": {
+      "text": "风月暗线第19场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_20"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_20": {
+      "text": "风月暗线第20场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_21"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_brothel_3",
+          "requires": [
+            "state_blackmail"
+          ]
+        }
+      ]
+    },
+    "brothel_21": {
+      "text": "风月暗线第21场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_22"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_22": {
+      "text": "风月暗线第22场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_23"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_5"
+        }
+      ]
+    },
+    "brothel_23": {
+      "text": "风月暗线第23场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_24"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_24": {
+      "text": "风月暗线第24场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_25"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_brothel_4"
+        }
+      ]
+    },
+    "brothel_25": {
+      "text": "风月暗线第25场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_26"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_brothel_6",
+          "requires": [
+            "clue_mask"
+          ]
+        }
+      ]
+    },
+    "brothel_26": {
+      "text": "风月暗线第26场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_27"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "brothel_unique_6"
+        }
+      ]
+    },
+    "brothel_27": {
+      "text": "风月暗线第27场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_28"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_28": {
+      "text": "风月暗线第28场：李书生低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_29"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_brothel_3",
+          "requires": [
+            "state_blackmail"
+          ]
+        }
+      ]
+    },
+    "brothel_29": {
+      "text": "风月暗线第29场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_30"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_30": {
+      "text": "风月暗线第30场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "brothel_hub",
+          "set_flags": [
+            "state_branch"
+          ]
+        }
+      ]
+    },
+    "fugitive_1": {
+      "text": "逃亡求生第1场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_2"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_2": {
+      "text": "逃亡求生第2场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "fugitive_3",
+          "set_flags": [
+            "item_sword"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_3": {
+      "text": "逃亡求生第3场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_4"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_4": {
+      "text": "逃亡求生第4场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_5"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_1"
+        }
+      ]
+    },
+    "fugitive_5": {
+      "text": "逃亡求生第5场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "fugitive_6",
+          "set_flags": [
+            "item_token"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_6": {
+      "text": "逃亡求生第6场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_7"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_fugitive_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_7",
+          "requires": [
+            "state_fugitive"
+          ],
+          "set_flags": [
+            "state_state_fugitive"
+          ]
+        }
+      ]
+    },
+    "fugitive_7": {
+      "text": "逃亡求生第7场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_8",
+          "set_flags": [
+            "clue_witness"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_8": {
+      "text": "逃亡求生第8场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_9"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_9": {
+      "text": "逃亡求生第9场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "fugitive_10",
+          "set_flags": [
+            "item_sword"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_2"
+        }
+      ]
+    },
+    "fugitive_10": {
+      "text": "逃亡求生第10场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_11"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_fugitive_2",
+          "requires": [
+            "item_sword"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_11",
+          "requires": [
+            "clue_witness"
+          ],
+          "set_flags": [
+            "state_clue_witness"
+          ]
+        }
+      ]
+    },
+    "fugitive_11": {
+      "text": "逃亡求生第11场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_12"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_12": {
+      "text": "逃亡求生第12场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_13"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_fugitive_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "fugitive_13",
+          "requires": [
+            "state_fugitive"
+          ],
+          "set_flags": [
+            "state_state_fugitive"
+          ]
+        }
+      ]
+    },
+    "fugitive_13": {
+      "text": "逃亡求生第13场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_14"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_3"
+        }
+      ]
+    },
+    "fugitive_14": {
+      "text": "逃亡求生第14场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_15"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_15": {
+      "text": "逃亡求生第15场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_16"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "用令牌换平安",
+          "next": "ending_extra_3",
+          "requires": [
+            "item_token"
+          ]
+        }
+      ]
+    },
+    "fugitive_16": {
+      "text": "逃亡求生第16场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_17"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_hidden_3",
+          "requires": [
+            "clue_witness",
+            "item_token"
+          ]
+        }
+      ]
+    },
+    "fugitive_17": {
+      "text": "逃亡求生第17场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_18"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_18": {
+      "text": "逃亡求生第18场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_19"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_fugitive_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_4"
+        }
+      ]
+    },
+    "fugitive_19": {
+      "text": "逃亡求生第19场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_20"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_20": {
+      "text": "逃亡求生第20场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_21"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_fugitive_3",
+          "requires": [
+            "item_token"
+          ]
+        }
+      ]
+    },
+    "fugitive_21": {
+      "text": "逃亡求生第21场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_22"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
+        }
+      ]
+    },
+    "fugitive_22": {
+      "text": "逃亡求生第22场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_23"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_5"
+        }
+      ]
+    },
+    "fugitive_23": {
+      "text": "逃亡求生第23场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_24"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_24": {
+      "text": "逃亡求生第24场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_25"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_fugitive_4"
+        }
+      ]
+    },
+    "fugitive_25": {
+      "text": "逃亡求生第25场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_26"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_fugitive_6",
+          "requires": [
+            "clue_witness"
+          ]
+        }
+      ]
+    },
+    "fugitive_26": {
+      "text": "逃亡求生第26场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_27"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "fugitive_unique_6"
+        }
+      ]
+    },
+    "fugitive_27": {
+      "text": "逃亡求生第27场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_28"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_28": {
+      "text": "逃亡求生第28场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_29"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_fugitive_3",
+          "requires": [
+            "item_token"
+          ]
+        }
+      ]
+    },
+    "fugitive_29": {
+      "text": "逃亡求生第29场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_30"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_30": {
+      "text": "逃亡求生第30场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "fugitive_hub",
+          "set_flags": [
+            "state_branch"
+          ]
+        }
+      ]
+    },
+    "revenge_1": {
+      "text": "反杀复仇第1场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_2"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_2": {
+      "text": "反杀复仇第2场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "revenge_3",
+          "set_flags": [
+            "state_revenge"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_3": {
+      "text": "反杀复仇第3场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_4"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_4": {
+      "text": "反杀复仇第4场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_5"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_1"
+        }
+      ]
+    },
+    "revenge_5": {
+      "text": "反杀复仇第5场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "revenge_6",
+          "set_flags": [
+            "trust_guard"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_6": {
+      "text": "反杀复仇第6场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_7"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_revenge_1"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_7",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_7": {
+      "text": "反杀复仇第7场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_8",
+          "set_flags": [
+            "clue_dagger"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_8": {
+      "text": "反杀复仇第8场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_9"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_9": {
+      "text": "反杀复仇第9场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查并收下线索",
+          "next": "revenge_10",
+          "set_flags": [
+            "state_revenge"
+          ]
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_2"
+        }
+      ]
+    },
+    "revenge_10": {
+      "text": "反杀复仇第10场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_11"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_revenge_2",
+          "requires": [
+            "state_revenge"
+          ]
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_11",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_11": {
+      "text": "反杀复仇第11场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_12"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_12": {
+      "text": "反杀复仇第12场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_13"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_revenge_2"
+        },
+        {
+          "text": "出示关键线索",
+          "next": "revenge_13",
+          "requires": [
+            "clue_dagger"
+          ],
+          "set_flags": [
+            "state_clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_13": {
+      "text": "反杀复仇第13场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_14"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_3"
+        }
+      ]
+    },
+    "revenge_14": {
+      "text": "反杀复仇第14场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_15"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_15": {
+      "text": "反杀复仇第15场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_16"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "以血契换路",
+          "next": "ending_extra_4",
+          "requires": [
+            "state_revenge"
+          ]
+        }
+      ]
+    },
+    "revenge_16": {
+      "text": "反杀复仇第16场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_17"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_17": {
+      "text": "反杀复仇第17场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_18"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_18": {
+      "text": "反杀复仇第18场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_19"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_revenge_3"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_4"
+        }
+      ]
+    },
+    "revenge_19": {
+      "text": "反杀复仇第19场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_20"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_20": {
+      "text": "反杀复仇第20场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_21"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_revenge_3",
+          "requires": [
+            "trust_guard"
+          ]
+        }
+      ]
+    },
+    "revenge_21": {
+      "text": "反杀复仇第21场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_22"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_22": {
+      "text": "反杀复仇第22场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_23"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_5"
+        }
+      ]
+    },
+    "revenge_23": {
+      "text": "反杀复仇第23场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_24"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_24": {
+      "text": "反杀复仇第24场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_25"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "直面抉择",
+          "next": "ending_revenge_4"
+        }
+      ]
+    },
+    "revenge_25": {
+      "text": "反杀复仇第25场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_26"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "押上全部筹码",
+          "next": "ending_revenge_6",
+          "requires": [
+            "clue_dagger",
+            "state_revenge"
+          ]
+        }
+      ]
+    },
+    "revenge_26": {
+      "text": "反杀复仇第26场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_27"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "追访关键人物",
+          "next": "revenge_unique_6"
+        }
+      ]
+    },
+    "revenge_27": {
+      "text": "反杀复仇第27场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_28"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_28": {
+      "text": "反杀复仇第28场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_29"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "出示证据换取通行",
+          "next": "ending_revenge_3",
+          "requires": [
+            "trust_guard"
+          ]
+        }
+      ]
+    },
+    "revenge_29": {
+      "text": "反杀复仇第29场：周都头低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_30"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_30": {
+      "text": "反杀复仇第30场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "choices": [
+        {
+          "text": "继续追查",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "回到人群中整理思路",
+          "next": "revenge_hub",
+          "set_flags": [
+            "state_branch"
+          ]
+        }
+      ]
+    },
+    "ending_justice_1": {
+      "text": "结局【堂前雪】：你凭证据定罪，堂前雪未化，正道暂得昭彰。",
+      "ending": true
+    },
+    "ending_justice_2": {
+      "text": "结局【纸上清白】：卷宗齐备，却被高墙挡回，清白止于纸上。",
+      "ending": true
+    },
+    "ending_justice_3": {
+      "text": "结局【功名易折】：你得功名却失同伴，夜深无人记你初衷。",
+      "ending": true
+    },
+    "ending_justice_4": {
+      "text": "结局【官场迷雾】：你立了功，却被安排外调，案情永无下文。",
+      "ending": true
+    },
+    "ending_justice_5": {
+      "text": "结局【证人失踪】：关键证人消失，真相被埋进人心深处。",
+      "ending": true
+    },
+    "ending_justice_6": {
+      "text": "结局【良心交易】：你以真相换自保，名声与良心一并流失。",
+      "ending": true
+    },
+    "ending_brothel_1": {
+      "text": "结局【香雾迷途】：风月场的线索引你走偏，真凶逍遥。",
+      "ending": true
+    },
+    "ending_brothel_2": {
+      "text": "结局【红帘旧誓】：你护住阮花魁，她替你挡下追责。",
+      "ending": true
+    },
+    "ending_brothel_3": {
+      "text": "结局【黑账之夜】：账册在你手中化为筹码，你成了局中人。",
+      "ending": true
+    },
+    "ending_brothel_4": {
+      "text": "结局【迷香自困】：你被迷香缠住，醒来时身份已被抹去。",
+      "ending": true
+    },
+    "ending_brothel_5": {
+      "text": "结局【风月清歌】：你放手退出，换得一段短暂清歌。",
+      "ending": true
+    },
+    "ending_brothel_6": {
+      "text": "结局【灯下同谋】：你与赌坊丁联手，换来灰色新生。",
+      "ending": true
+    },
+    "ending_fugitive_1": {
+      "text": "结局【江风远遁】：你随船远去，汴梁成了旧梦。",
+      "ending": true
+    },
+    "ending_fugitive_2": {
+      "text": "结局【药债难偿】：逃亡途中欠下人情，终被牵回案网。",
+      "ending": true
+    },
+    "ending_fugitive_3": {
+      "text": "结局【孤灯残影】：你藏身小镇，夜夜听风雨敲门。",
+      "ending": true
+    },
+    "ending_fugitive_4": {
+      "text": "结局【旧伤新债】：你为救人暴露行踪，被迫回城。",
+      "ending": true
+    },
+    "ending_fugitive_5": {
+      "text": "结局【归途无岸】：船翻人散，真相随江流沉底。",
+      "ending": true
+    },
+    "ending_fugitive_6": {
+      "text": "结局【弃名苟活】：你改名换命，背负旧案余生。",
+      "ending": true
+    },
+    "ending_revenge_1": {
+      "text": "结局【刀下复仇】：你亲手了断恩怨，却失去最后的理智。",
+      "ending": true
+    },
+    "ending_revenge_2": {
+      "text": "结局【血债自偿】：复仇成功，但你也成了下一个猎物。",
+      "ending": true
+    },
+    "ending_revenge_3": {
+      "text": "结局【以恶制恶】：你借力反杀，汴梁暗面认可了你。",
+      "ending": true
+    },
+    "ending_revenge_4": {
+      "text": "结局【清算未尽】：你放过一人，却换来更深仇恨。",
+      "ending": true
+    },
+    "ending_revenge_5": {
+      "text": "结局【盟友背叛】：信任被出卖，你跌入权势陷阱。",
+      "ending": true
+    },
+    "ending_revenge_6": {
+      "text": "结局【复仇成空】：真凶早已换名，你只握住影子。",
+      "ending": true
+    },
+    "ending_hidden_1": {
+      "text": "结局【密信换路】：你以密信换生路，却被迫离开汴梁。",
+      "ending": true
+    },
+    "ending_hidden_2": {
+      "text": "结局【夜幕共犯】：你与内侍霍交易，成为权势棋子。",
+      "ending": true
+    },
+    "ending_hidden_3": {
+      "text": "结局【旧友翻案】：你救回旧友，反揭出更大的阴影。",
+      "ending": true
+    },
+    "ending_extra_1": {
+      "text": "结局【微光未散】：你守住一线人心，仍看见希望。",
+      "ending": true
+    },
+    "ending_extra_2": {
+      "text": "结局【纸伞孤行】：你独行雨巷，不再回头。",
+      "ending": true
+    },
+    "ending_extra_3": {
+      "text": "结局【朱门深锁】：你闯入权门，却被无声驱逐。",
+      "ending": true
+    },
+    "ending_extra_4": {
+      "text": "结局【灯市残梦】：你在灯市寻得答案，却失去故人。",
+      "ending": true
+    },
+    "justice_unique_1": {
+      "text": "你在卷宗夹层发现旧笔迹，指向一名被冷落的前科吏。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_2": {
+      "text": "巡街的卖伞童子提起一把破伞，伞骨里藏着碎纸。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        },
+        {
+          "text": "上交证据",
+          "next": "ending_justice_5",
+          "requires": [
+            "trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_unique_3": {
+      "text": "你在府库门口撞见内侍霍，他的袖口沾着墨。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_4": {
+      "text": "赵掌柜递给你一张账页，低声说‘银流不对’。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        },
+        {
+          "text": "上交证据",
+          "next": "ending_justice_5",
+          "requires": [
+            "trust_magistrate"
+          ]
+        }
+      ]
+    },
+    "justice_unique_5": {
+      "text": "李书生提议换证人，却担心被当作伪证。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "justice_unique_6": {
+      "text": "包校尉让你在夜巡时设局引蛇出洞。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "justice_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "justice_hub"
+        }
+      ]
+    },
+    "brothel_unique_1": {
+      "text": "苏娘子说今夜的曲子被人换过，词里藏名。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_2": {
+      "text": "阮花魁递给你一枚香囊，隐约有药香。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_3": {
+      "text": "赌坊丁提到一张欠条，欠款人竟是官眷。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "交出密信",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_unique_4": {
+      "text": "幕后小厮透露帘后的贵客总戴面具。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "brothel_unique_5": {
+      "text": "你在雅间听到‘换名’二字，桌下有人递信。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        },
+        {
+          "text": "交出密信",
+          "next": "ending_brothel_5",
+          "requires": [
+            "trust_courtesan"
+          ]
+        }
+      ]
+    },
+    "brothel_unique_6": {
+      "text": "灯影下有女子落泪，说自己不是第一次被灭口。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "brothel_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "fugitive_unique_1": {
+      "text": "船夫葛指向城外破庙，说有人等你。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_2": {
+      "text": "沈医官说你旧伤未愈，硬逃只会暴露。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_3": {
+      "text": "你在渡口看到周都头的暗号，心里一紧。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_4": {
+      "text": "夜雨中一名老妪递你护身符，称是冤魂所托。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "冒险渡河",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
+        }
+      ]
+    },
+    "fugitive_unique_5": {
+      "text": "你偷听到船家议价，提到一块令牌能保命。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        }
+      ]
+    },
+    "fugitive_unique_6": {
+      "text": "你在城门口发现追捕告示，画像竟与旧友相似。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "fugitive_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "fugitive_hub"
+        },
+        {
+          "text": "冒险渡河",
+          "next": "ending_fugitive_5",
+          "requires": [
+            "state_fugitive"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_1": {
+      "text": "周都头承认曾失手，愿帮你追根究底。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_3"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_2": {
+      "text": "你从尸检册里找出一处不合常理的伤口。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_6"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "以血誓起事",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_3": {
+      "text": "内侍霍提出交易：换线索，换沉默。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_9"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_4": {
+      "text": "你见到一把旧匕首，刀纹与传闻一致。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_12"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        },
+        {
+          "text": "以血誓起事",
+          "next": "ending_revenge_5",
+          "requires": [
+            "clue_dagger"
+          ]
+        }
+      ]
+    },
+    "revenge_unique_5": {
+      "text": "苏娘子暗示有人在复仇名录上动了笔。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_15"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    },
+    "revenge_unique_6": {
+      "text": "你得知被害者生前秘密赴约，地点在城外。",
+      "choices": [
+        {
+          "text": "追问细节",
+          "next": "revenge_18"
+        },
+        {
+          "text": "暂避风头",
+          "next": "revenge_hub"
+        }
+      ]
+    }
+  }
+}
