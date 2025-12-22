@@ -20,12 +20,24 @@ def validate_story(story: dict):
     title = story.get("title")
     start = story.get("start")
     nodes = story.get("nodes")
+    stats_config = story.get("stats_config")
     if not isinstance(title, str) or not title.strip():
         raise ValueError("故事结构错误：缺少标题")
     if not isinstance(start, str) or not start.strip():
         raise ValueError("故事结构错误：缺少起始节点")
     if not isinstance(nodes, dict) or not nodes:
         raise ValueError("故事结构错误：缺少节点列表")
+    if stats_config is not None:
+        if not isinstance(stats_config, dict):
+            raise ValueError("故事结构错误：stats_config 必须是对象")
+        suspicion_max = stats_config.get("suspicion_max")
+        fail_node = stats_config.get("suspicion_fail_node")
+        if not isinstance(suspicion_max, int) or suspicion_max < 0:
+            raise ValueError("故事结构错误：suspicion_max 必须是非负整数")
+        if not isinstance(fail_node, str) or not fail_node.strip():
+            raise ValueError("故事结构错误：suspicion_fail_node 必须是字符串")
+        if fail_node not in nodes:
+            raise ValueError("故事结构错误：suspicion_fail_node 不存在")
     if start not in nodes:
         raise ValueError("故事结构错误：起始节点不存在")
 
@@ -50,6 +62,8 @@ def validate_story(story: dict):
             next_id = choice.get("next")
             requires = choice.get("requires")
             set_flags = choice.get("set_flags")
+            delta_stats = choice.get("delta_stats")
+            requires_stats = choice.get("requires_stats")
             if not isinstance(choice_text, str) or not choice_text.strip():
                 raise ValueError(f"故事结构错误：节点 {node_id} 选项缺少文本")
             if not isinstance(next_id, str) or not next_id.strip():
@@ -72,41 +86,68 @@ def validate_story(story: dict):
                     raise ValueError(
                         f"故事结构错误：节点 {node_id} 选项 set_flags 必须是字符串列表"
                     )
+            if delta_stats is not None:
+                if not isinstance(delta_stats, dict) or not all(
+                    isinstance(key, str) and isinstance(value, int)
+                    for key, value in delta_stats.items()
+                ):
+                    raise ValueError(
+                        f"故事结构错误：节点 {node_id} 选项 delta_stats 必须是整数映射"
+                    )
+            if requires_stats is not None:
+                if not isinstance(requires_stats, dict) or not all(
+                    isinstance(key, str) and isinstance(value, int)
+                    for key, value in requires_stats.items()
+                ):
+                    raise ValueError(
+                        f"故事结构错误：节点 {node_id} 选项 requires_stats 必须是整数映射"
+                    )
     return True
 
 
-def get_choices(story: dict, node_id: str, flags=None):
+def get_choices(story: dict, node_id: str, flags=None, stats=None):
     node = story["nodes"][node_id]
     choices = node.get("choices", [])
     if not flags:
         flags = set()
+    if stats is None:
+        stats = {}
     return [
         choice
         for choice in choices
         if set(choice.get("requires", [])).issubset(flags)
+        and all(stats.get(key, 0) >= value for key, value in choice.get("requires_stats", {}).items())
     ]
 
 
-def apply_choice(story: dict, node_id: str, choice_index: int, flags=None):
-    choices = get_choices(story, node_id, flags)
+def apply_choice(story: dict, node_id: str, choice_index: int, flags=None, stats=None):
+    choices = get_choices(story, node_id, flags, stats)
     if choice_index < 1 or choice_index > len(choices):
         raise IndexError("选项索引超出范围")
     choice = choices[choice_index - 1]
-    return choice["next"], set(choice.get("set_flags", []))
+    return (
+        choice["next"],
+        set(choice.get("set_flags", [])),
+        dict(choice.get("delta_stats", {})),
+    )
 
 
-def _render_normal(story: dict, node_id: str, flags):
+def _render_normal(story: dict, node_id: str, flags, stats):
     node = story["nodes"][node_id]
-    lines = [node["text"], "请选择："]
-    for index, choice in enumerate(get_choices(story, node_id, flags), start=1):
+    lines = [node["text"], f"状态：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}", "请选择："]
+    for index, choice in enumerate(get_choices(story, node_id, flags, stats), start=1):
         lines.append(f"{index}. {choice['text']}")
     lines.append("输入 0 查看帮助，9 退出，8 后退。")
     return lines
 
 
-def _render_ending(story: dict, node_id: str):
+def _render_ending(story: dict, node_id: str, stats):
     node = story["nodes"][node_id]
-    return [node["text"], "结局：输入 1 重开，9 退出。"]
+    return [
+        node["text"],
+        f"状态：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}",
+        "结局：输入 1 重开，9 退出。",
+    ]
 
 
 def step(state: dict, user_input: str, story: dict):
@@ -114,12 +155,16 @@ def step(state: dict, user_input: str, story: dict):
     trimmed = user_input.strip()
     flags = set(state.get("flags", set()))
     history = list(state.get("history_stack", []))
+    stats = dict(state.get("stats", {"suspicion": 0, "silver": 0}))
+    stats.setdefault("suspicion", 0)
+    stats.setdefault("silver", 0)
+    stats_config = story.get("stats_config", {})
 
     if trimmed == "":
         if state["mode"] == "ending":
-            output_lines.extend(_render_ending(story, state["node_id"]))
+            output_lines.extend(_render_ending(story, state["node_id"], stats))
         else:
-            output_lines.extend(_render_normal(story, state["node_id"], flags))
+            output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
         return state, output_lines, False
 
     if state["mode"] == "ending":
@@ -129,19 +174,22 @@ def step(state: dict, user_input: str, story: dict):
                 "history_stack": [],
                 "mode": "normal",
                 "flags": set(),
+                "stats": {"suspicion": 0, "silver": 0},
             }
-            output_lines.extend(_render_normal(story, new_state["node_id"], new_state["flags"]))
+            output_lines.extend(
+                _render_normal(story, new_state["node_id"], new_state["flags"], new_state["stats"])
+            )
             return new_state, output_lines, False
         if trimmed == "9":
             output_lines.append("已退出游戏。")
             return state, output_lines, True
         output_lines.append("无效输入")
-        output_lines.extend(_render_ending(story, state["node_id"]))
+        output_lines.extend(_render_ending(story, state["node_id"], stats))
         return state, output_lines, False
 
     if trimmed == "0":
         output_lines.append("帮助：输入 1..N 选择，8 后退，9 退出。")
-        output_lines.extend(_render_normal(story, state["node_id"], flags))
+        output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
         return state, output_lines, False
 
     if trimmed == "9":
@@ -156,41 +204,61 @@ def step(state: dict, user_input: str, story: dict):
                 "history_stack": history,
                 "mode": "normal",
                 "flags": flags,
+                "stats": stats,
             }
         else:
             output_lines.append("无法后退，已经在起点。")
-        output_lines.extend(_render_normal(story, state["node_id"], flags))
+        output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
         return state, output_lines, False
 
     if trimmed.isdigit():
         choice_index = int(trimmed)
-        choices = get_choices(story, state["node_id"], flags)
+        choices = get_choices(story, state["node_id"], flags, stats)
         if 1 <= choice_index <= len(choices):
-            next_node_id, new_flags = apply_choice(
-                story, state["node_id"], choice_index, flags
+            next_node_id, new_flags, delta_stats = apply_choice(
+                story, state["node_id"], choice_index, flags, stats
             )
             flags = flags.union(new_flags)
             history.append(state["node_id"])
+            for key, delta in delta_stats.items():
+                stats[key] = stats.get(key, 0) + delta
+            if stats.get("silver", 0) < 0:
+                stats["silver"] = 0
+            if stats_config:
+                suspicion_max = stats_config.get("suspicion_max")
+                fail_node = stats_config.get("suspicion_fail_node")
+                if suspicion_max is not None and fail_node and stats.get("suspicion", 0) >= suspicion_max:
+                    state = {
+                        "node_id": fail_node,
+                        "history_stack": history,
+                        "mode": "ending",
+                        "flags": flags,
+                        "stats": stats,
+                    }
+                    output_lines.extend(_render_ending(story, fail_node, stats))
+                    return state, output_lines, False
             if story["nodes"][next_node_id].get("ending"):
                 state = {
                     "node_id": next_node_id,
                     "history_stack": history,
                     "mode": "ending",
                     "flags": flags,
+                    "stats": stats,
                 }
-                output_lines.extend(_render_ending(story, next_node_id))
+                output_lines.extend(_render_ending(story, next_node_id, stats))
             else:
                 state = {
                     "node_id": next_node_id,
                     "history_stack": history,
                     "mode": "normal",
                     "flags": flags,
+                    "stats": stats,
                 }
-                output_lines.extend(_render_normal(story, next_node_id, flags))
+                output_lines.extend(_render_normal(story, next_node_id, flags, stats))
             return state, output_lines, False
 
     output_lines.append("无效输入")
-    output_lines.extend(_render_normal(story, state["node_id"], flags))
+    output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
     return state, output_lines, False
 
 
@@ -208,8 +276,9 @@ def run_game(story_path: str = "story.json", input_fn=input, output_fn=print):
         "history_stack": [],
         "mode": "normal",
         "flags": set(),
+        "stats": {"suspicion": 0, "silver": 0},
     }
-    for line in _render_normal(story, state["node_id"], state["flags"]):
+    for line in _render_normal(story, state["node_id"], state["flags"], state["stats"]):
         output_fn(line)
 
     while True:

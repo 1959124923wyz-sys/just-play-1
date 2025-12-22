@@ -16,6 +16,25 @@
         {
           "text": "直接去开封府报案",
           "next": "brothel_hub"
+        },
+        {
+          "text": "顺手摸走几枚铜钱",
+          "next": "demo_pickpocket",
+          "delta_stats": {
+            "silver": 3,
+            "suspicion": 1
+          }
+        },
+        {
+          "text": "试图买通巡卒",
+          "next": "demo_bribe",
+          "requires_stats": {
+            "silver": 3
+          },
+          "delta_stats": {
+            "silver": -3,
+            "suspicion": -1
+          }
         }
       ]
     },
@@ -2699,6 +2718,40 @@
           "next": "revenge_hub"
         }
       ]
+    },
+    "demo_pickpocket": {
+      "text": "你摸到几枚湿冷的铜钱，手心一沉，巡卒的目光也亮了一瞬。",
+      "choices": [
+        {
+          "text": "收起铜钱继续前行",
+          "next": "justice_hub"
+        },
+        {
+          "text": "立刻离开现场",
+          "next": "forest"
+        }
+      ]
+    },
+    "demo_bribe": {
+      "text": "你低声递上银两，巡卒皱眉收下，却也警告你莫再多事。",
+      "choices": [
+        {
+          "text": "趁机退入暗巷",
+          "next": "forest"
+        },
+        {
+          "text": "转身去开封府",
+          "next": "brothel_hub"
+        }
+      ]
+    },
+    "ending_suspicion": {
+      "text": "结局【嫌疑过重】：你的举动引起怀疑，被当街扣下，线索就此断绝。",
+      "ending": true
     }
+  },
+  "stats_config": {
+    "suspicion_max": 5,
+    "suspicion_fail_node": "ending_suspicion"
   }
 }
