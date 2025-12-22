@@ -77,6 +77,7 @@ class GameTests(unittest.TestCase):
         story = {
             "title": "测试",
             "start": "start",
+            "flag_descriptions": {"clue": "线索"},
             "nodes": {
                 "start": {
                     "text": "起点",
@@ -169,6 +170,7 @@ class GameTests(unittest.TestCase):
             "title": "测试",
             "start": "start",
             "stats_config": {"suspicion_max": 3, "suspicion_fail_node": "ending_suspicion"},
+            "flag_descriptions": {},
             "nodes": {
                 "start": {
                     "text": "起点",
@@ -184,6 +186,67 @@ class GameTests(unittest.TestCase):
         state, _, _ = step(state, "1", story)
         self.assertEqual(state["node_id"], "ending_suspicion")
         self.assertEqual(state["mode"], "ending")
+
+    def test_locked_choices_visible(self):
+        story = {
+            "title": "测试",
+            "start": "start",
+            "flag_descriptions": {"clue_a": "线索A"},
+            "nodes": {
+                "start": {
+                    "text": "起点",
+                    "choices": [
+                        {"text": "普通", "next": "start"},
+                        {"text": "需要线索", "next": "start", "requires": ["clue_a"]},
+                        {"text": "买通", "next": "start", "requires_stats": {"silver": 3}},
+                    ],
+                }
+            },
+        }
+        validate_story(story)
+        state = {"node_id": "start", "history_stack": [], "mode": "normal"}
+        _, output_lines, _ = step(state, "", story)
+        output = "\n".join(output_lines)
+        self.assertIn("锁定选项", output)
+        self.assertIn("缺少线索", output)
+        self.assertIn("silver>=3", output)
+
+    def test_help_panel_contains_sections(self):
+        story = {
+            "title": "测试",
+            "start": "start",
+            "flag_descriptions": {"clue_a": "线索A"},
+            "nodes": {
+                "start": {
+                    "text": "起点文本",
+                    "title": "起点",
+                    "where": "汴梁",
+                    "goal": "求真",
+                    "summary": "起点摘要",
+                    "choices": [{"text": "前进", "next": "next"}],
+                },
+                "next": {
+                    "text": "继续",
+                    "title": "继续",
+                    "summary": "继续摘要",
+                    "choices": [{"text": "返回", "next": "start"}],
+                },
+            },
+        }
+        validate_story(story)
+        state = {
+            "node_id": "start",
+            "history_stack": ["next"],
+            "mode": "normal",
+            "flags": {"clue_a"},
+            "stats": {"suspicion": 1, "silver": 2},
+            "last_choice": "前进",
+        }
+        _, output_lines, _ = step(state, "0", story)
+        output = "\n".join(output_lines)
+        self.assertIn("前情提要", output)
+        self.assertIn("已获得线索", output)
+        self.assertIn("数值说明", output)
 
     def test_can_reach_ending_and_exit(self):
         inputs = iter(["2", "2", "9"])

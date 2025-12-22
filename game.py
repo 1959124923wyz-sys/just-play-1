@@ -21,12 +21,15 @@ def validate_story(story: dict):
     start = story.get("start")
     nodes = story.get("nodes")
     stats_config = story.get("stats_config")
+    flag_descriptions = story.get("flag_descriptions", {})
     if not isinstance(title, str) or not title.strip():
         raise ValueError("故事结构错误：缺少标题")
     if not isinstance(start, str) or not start.strip():
         raise ValueError("故事结构错误：缺少起始节点")
     if not isinstance(nodes, dict) or not nodes:
         raise ValueError("故事结构错误：缺少节点列表")
+    if flag_descriptions is not None and not isinstance(flag_descriptions, dict):
+        raise ValueError("故事结构错误：flag_descriptions 必须是对象")
     if stats_config is not None:
         if not isinstance(stats_config, dict):
             raise ValueError("故事结构错误：stats_config 必须是对象")
@@ -86,6 +89,12 @@ def validate_story(story: dict):
                     raise ValueError(
                         f"故事结构错误：节点 {node_id} 选项 set_flags 必须是字符串列表"
                     )
+            if requires is not None:
+                missing = [flag for flag in requires if flag not in flag_descriptions]
+                if missing:
+                    raise ValueError(
+                        f"故事结构错误：节点 {node_id} 选项 requires 未定义描述：{', '.join(missing)}"
+                    )
             if delta_stats is not None:
                 if not isinstance(delta_stats, dict) or not all(
                     isinstance(key, str) and isinstance(value, int)
@@ -120,6 +129,26 @@ def get_choices(story: dict, node_id: str, flags=None, stats=None):
     ]
 
 
+def get_locked_choices(story: dict, node_id: str, flags=None, stats=None):
+    node = story["nodes"][node_id]
+    choices = node.get("choices", [])
+    if not flags:
+        flags = set()
+    if stats is None:
+        stats = {}
+    locked = []
+    for choice in choices:
+        missing_flags = [f for f in choice.get("requires", []) if f not in flags]
+        missing_stats = [
+            (key, value)
+            for key, value in choice.get("requires_stats", {}).items()
+            if stats.get(key, 0) < value
+        ]
+        if missing_flags or missing_stats:
+            locked.append((choice, missing_flags, missing_stats))
+    return locked
+
+
 def apply_choice(story: dict, node_id: str, choice_index: int, flags=None, stats=None):
     choices = get_choices(story, node_id, flags, stats)
     if choice_index < 1 or choice_index > len(choices):
@@ -137,6 +166,19 @@ def _render_normal(story: dict, node_id: str, flags, stats):
     lines = [node["text"], f"状态：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}", "请选择："]
     for index, choice in enumerate(get_choices(story, node_id, flags, stats), start=1):
         lines.append(f"{index}. {choice['text']}")
+    locked = get_locked_choices(story, node_id, flags, stats)
+    if locked:
+        lines.append("锁定选项：")
+        flag_descriptions = story.get("flag_descriptions", {})
+        for choice, missing_flags, missing_stats in locked:
+            requirements = []
+            if missing_flags:
+                flag_texts = [flag_descriptions.get(flag, flag) for flag in missing_flags]
+                requirements.append(f"缺少线索：{', '.join(flag_texts)}")
+            if missing_stats:
+                stat_texts = [f"{key}>={value}" for key, value in missing_stats]
+                requirements.append(f"数值不足：{', '.join(stat_texts)}")
+            lines.append(f"- {choice['text']}（{'; '.join(requirements)}）")
     lines.append("输入 0 查看帮助，9 退出，8 后退。")
     return lines
 
@@ -159,6 +201,7 @@ def step(state: dict, user_input: str, story: dict):
     stats.setdefault("suspicion", 0)
     stats.setdefault("silver", 0)
     stats_config = story.get("stats_config", {})
+    last_choice = state.get("last_choice")
 
     if trimmed == "":
         if state["mode"] == "ending":
@@ -188,7 +231,32 @@ def step(state: dict, user_input: str, story: dict):
         return state, output_lines, False
 
     if trimmed == "0":
+        node = story["nodes"][state["node_id"]]
         output_lines.append("帮助：输入 1..N 选择，8 后退，9 退出。")
+        if node.get("title") or node.get("where") or node.get("goal"):
+            output_lines.append(
+                f"地点：{node.get('where', '未知')} | 标题：{node.get('title', '未命名')} | 目标：{node.get('goal', '未设定')}"
+            )
+        if last_choice:
+            output_lines.append(f"上一步选择：{last_choice}")
+        if history:
+            output_lines.append("前情提要：")
+            recent = history[-3:]
+            for node_id in recent:
+                past = story["nodes"][node_id]
+                title = past.get("title", node_id)
+                summary = past.get("summary")
+                if not summary:
+                    summary = past.get("text", "")[:30]
+                output_lines.append(f"- {title}：{summary}")
+        if flags:
+            flag_descriptions = story.get("flag_descriptions", {})
+            output_lines.append("已获得线索：")
+            for flag in sorted(flags):
+                output_lines.append(f"- {flag_descriptions.get(flag, flag)}")
+        output_lines.append(
+            f"数值说明：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}，嫌疑达到阈值将触发坏结局。"
+        )
         output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
         return state, output_lines, False
 
@@ -218,6 +286,7 @@ def step(state: dict, user_input: str, story: dict):
             next_node_id, new_flags, delta_stats = apply_choice(
                 story, state["node_id"], choice_index, flags, stats
             )
+            last_choice = choices[choice_index - 1]["text"]
             flags = flags.union(new_flags)
             history.append(state["node_id"])
             for key, delta in delta_stats.items():
@@ -234,6 +303,7 @@ def step(state: dict, user_input: str, story: dict):
                         "mode": "ending",
                         "flags": flags,
                         "stats": stats,
+                        "last_choice": last_choice,
                     }
                     output_lines.extend(_render_ending(story, fail_node, stats))
                     return state, output_lines, False
@@ -244,6 +314,7 @@ def step(state: dict, user_input: str, story: dict):
                     "mode": "ending",
                     "flags": flags,
                     "stats": stats,
+                    "last_choice": last_choice,
                 }
                 output_lines.extend(_render_ending(story, next_node_id, stats))
             else:
@@ -253,6 +324,7 @@ def step(state: dict, user_input: str, story: dict):
                     "mode": "normal",
                     "flags": flags,
                     "stats": stats,
+                    "last_choice": last_choice,
                 }
                 output_lines.extend(_render_normal(story, next_node_id, flags, stats))
             return state, output_lines, False
@@ -277,6 +349,7 @@ def run_game(story_path: str = "story.json", input_fn=input, output_fn=print):
         "mode": "normal",
         "flags": set(),
         "stats": {"suspicion": 0, "silver": 0},
+        "last_choice": None,
     }
     for line in _render_normal(story, state["node_id"], state["flags"], state["stats"]):
         output_fn(line)
