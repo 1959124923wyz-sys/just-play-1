@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -161,23 +162,39 @@ def apply_choice(story: dict, node_id: str, choice_index: int, flags=None, stats
     )
 
 
+def strip_scene_prefix(text: str):
+    match = None
+    if text:
+        match = re.match(r"^(?P<route>\S+?)第(?P<index>\d+)场[:：]\s*", text)
+    if not match:
+        return text, {}
+    meta = {"route": match.group("route"), "index": int(match.group("index"))}
+    return text[match.end():], meta
+
+
 def _render_normal(story: dict, node_id: str, flags, stats):
     node = story["nodes"][node_id]
-    lines = [node["text"], f"状态：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}", "请选择："]
+    clean_text, _ = strip_scene_prefix(node["text"])
+    lines = [clean_text, "请选择："]
     for index, choice in enumerate(get_choices(story, node_id, flags, stats), start=1):
         lines.append(f"{index}. {choice['text']}")
     locked = get_locked_choices(story, node_id, flags, stats)
     if locked:
-        lines.append("锁定选项：")
-        flag_descriptions = story.get("flag_descriptions", {})
+        lines.append("【尚不可行】")
         for choice, missing_flags, missing_stats in locked:
             requirements = []
             if missing_flags:
-                flag_texts = [flag_descriptions.get(flag, flag) for flag in missing_flags]
-                requirements.append(f"缺少线索：{', '.join(flag_texts)}")
+                requirements.append("条件未具备")
             if missing_stats:
-                stat_texts = [f"{key}>={value}" for key, value in missing_stats]
-                requirements.append(f"数值不足：{', '.join(stat_texts)}")
+                stat_texts = []
+                for key, value in missing_stats:
+                    if key == "silver":
+                        stat_texts.append("钱袋不够沉")
+                    elif key == "suspicion":
+                        stat_texts.append("风声太紧")
+                    else:
+                        stat_texts.append("时机不对")
+                requirements.append(" / ".join(stat_texts))
             lines.append(f"- {choice['text']}（{'; '.join(requirements)}）")
     lines.append("输入 0 查看帮助，9 退出，8 后退。")
     return lines
@@ -185,9 +202,9 @@ def _render_normal(story: dict, node_id: str, flags, stats):
 
 def _render_ending(story: dict, node_id: str, stats):
     node = story["nodes"][node_id]
+    clean_text, _ = strip_scene_prefix(node["text"])
     return [
-        node["text"],
-        f"状态：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}",
+        clean_text,
         "结局：输入 1 重开，9 退出。",
     ]
 
@@ -202,6 +219,7 @@ def step(state: dict, user_input: str, story: dict):
     stats.setdefault("silver", 0)
     stats_config = story.get("stats_config", {})
     last_choice = state.get("last_choice")
+    help_mode = state.get("help_mode", 0)
 
     if trimmed == "":
         if state["mode"] == "ending":
@@ -233,30 +251,22 @@ def step(state: dict, user_input: str, story: dict):
     if trimmed == "0":
         node = story["nodes"][state["node_id"]]
         output_lines.append("帮助：输入 1..N 选择，8 后退，9 退出。")
-        if node.get("title") or node.get("where") or node.get("goal"):
+        output_lines.append("提示：回车可重显当前内容。")
+        if help_mode == 1:
+            output_lines.append(f"调试信息：node_id={state['node_id']}")
+            if flags:
+                output_lines.append(f"flags={', '.join(sorted(flags))}")
             output_lines.append(
-                f"地点：{node.get('where', '未知')} | 标题：{node.get('title', '未命名')} | 目标：{node.get('goal', '未设定')}"
+                f"stats: suspicion={stats.get('suspicion', 0)}, silver={stats.get('silver', 0)}"
             )
-        if last_choice:
-            output_lines.append(f"上一步选择：{last_choice}")
-        if history:
-            output_lines.append("前情提要：")
-            recent = history[-3:]
-            for node_id in recent:
-                past = story["nodes"][node_id]
-                title = past.get("title", node_id)
-                summary = past.get("summary")
-                if not summary:
-                    summary = past.get("text", "")[:30]
-                output_lines.append(f"- {title}：{summary}")
-        if flags:
-            flag_descriptions = story.get("flag_descriptions", {})
-            output_lines.append("已获得线索：")
-            for flag in sorted(flags):
-                output_lines.append(f"- {flag_descriptions.get(flag, flag)}")
-        output_lines.append(
-            f"数值说明：嫌疑={stats.get('suspicion', 0)} 银两={stats.get('silver', 0)}，嫌疑达到阈值将触发坏结局。"
-        )
+            _, meta = strip_scene_prefix(node.get("text", ""))
+            if meta:
+                output_lines.append(
+                    f"route={meta.get('route', '未知')}, index={meta.get('index', '未知')}"
+                )
+            output_lines.append("提示：再次输入 0 返回简洁帮助。")
+        help_mode = 0 if help_mode == 1 else 1
+        state["help_mode"] = help_mode
         output_lines.extend(_render_normal(story, state["node_id"], flags, stats))
         return state, output_lines, False
 
@@ -291,6 +301,17 @@ def step(state: dict, user_input: str, story: dict):
             history.append(state["node_id"])
             for key, delta in delta_stats.items():
                 stats[key] = stats.get(key, 0) + delta
+                if delta != 0:
+                    if key == "silver":
+                        if delta > 0:
+                            output_lines.append("钱袋沉了一些。")
+                        else:
+                            output_lines.append("钱袋轻了些。")
+                    elif key == "suspicion":
+                        if delta > 0:
+                            output_lines.append("你感觉目光变得更锋利了。")
+                        else:
+                            output_lines.append("风声似乎缓了一点。")
             if stats.get("silver", 0) < 0:
                 stats["silver"] = 0
             if stats_config:
@@ -304,7 +325,9 @@ def step(state: dict, user_input: str, story: dict):
                         "flags": flags,
                         "stats": stats,
                         "last_choice": last_choice,
+                        "help_mode": help_mode,
                     }
+                    output_lines.append("你察觉风声骤紧，麻烦在逼近。")
                     output_lines.extend(_render_ending(story, fail_node, stats))
                     return state, output_lines, False
             if story["nodes"][next_node_id].get("ending"):
@@ -315,6 +338,7 @@ def step(state: dict, user_input: str, story: dict):
                     "flags": flags,
                     "stats": stats,
                     "last_choice": last_choice,
+                    "help_mode": help_mode,
                 }
                 output_lines.extend(_render_ending(story, next_node_id, stats))
             else:
@@ -325,6 +349,7 @@ def step(state: dict, user_input: str, story: dict):
                     "flags": flags,
                     "stats": stats,
                     "last_choice": last_choice,
+                    "help_mode": help_mode,
                 }
                 output_lines.extend(_render_normal(story, next_node_id, flags, stats))
             return state, output_lines, False
@@ -350,6 +375,7 @@ def run_game(story_path: str = "story.json", input_fn=input, output_fn=print):
         "flags": set(),
         "stats": {"suspicion": 0, "silver": 0},
         "last_choice": None,
+        "help_mode": 0,
     }
     for line in _render_normal(story, state["node_id"], state["flags"], state["stats"]):
         output_fn(line)

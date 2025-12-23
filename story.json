@@ -140,7 +140,7 @@
       ]
     },
     "justice_1": {
-      "text": "查案正道第1场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -150,10 +150,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 1
+      }
     },
     "justice_2": {
-      "text": "查案正道第2场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -166,10 +170,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 2
+      }
     },
     "justice_3": {
-      "text": "查案正道第3场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -179,10 +187,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 3
+      }
     },
     "justice_4": {
-      "text": "查案正道第4场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -196,10 +208,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_1"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 4
+      }
     },
     "justice_5": {
-      "text": "查案正道第5场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -212,10 +228,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 5
+      }
     },
     "justice_6": {
-      "text": "查案正道第6场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -239,10 +259,14 @@
             "state_clue_letter"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 6
+      }
     },
     "justice_7": {
-      "text": "查案正道第7场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -255,10 +279,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 7
+      }
     },
     "justice_8": {
-      "text": "查案正道第8场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -272,10 +300,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_2"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 8
+      }
     },
     "justice_9": {
-      "text": "查案正道第9场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -288,10 +320,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 9
+      }
     },
     "justice_10": {
-      "text": "查案正道第10场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -318,10 +354,14 @@
             "state_trust_magistrate"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 10
+      }
     },
     "justice_11": {
-      "text": "查案正道第11场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -331,10 +371,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 11
+      }
     },
     "justice_12": {
-      "text": "查案正道第12场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -358,10 +402,14 @@
             "state_clue_letter"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 12
+      }
     },
     "justice_13": {
-      "text": "查案正道第13场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -371,10 +419,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 13
+      }
     },
     "justice_14": {
-      "text": "查案正道第14场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -388,10 +440,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_3"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 14
+      }
     },
     "justice_15": {
-      "text": "查案正道第15场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -408,10 +464,14 @@
             "item_seal"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 15
+      }
     },
     "justice_16": {
-      "text": "查案正道第16场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -429,10 +489,14 @@
             "item_seal"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 16
+      }
     },
     "justice_17": {
-      "text": "查案正道第17场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -442,10 +506,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 17
+      }
     },
     "justice_18": {
-      "text": "查案正道第18场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -469,10 +537,14 @@
             "state_trust_magistrate"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 18
+      }
     },
     "justice_19": {
-      "text": "查案正道第19场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -486,10 +558,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 19
+      }
     },
     "justice_20": {
-      "text": "查案正道第20场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -506,10 +582,14 @@
             "clue_account"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 20
+      }
     },
     "justice_21": {
-      "text": "查案正道第21场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -527,10 +607,14 @@
             "trust_magistrate"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 21
+      }
     },
     "justice_22": {
-      "text": "查案正道第22场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -540,10 +624,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 22
+      }
     },
     "justice_23": {
-      "text": "查案正道第23场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -557,10 +645,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_5"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 23
+      }
     },
     "justice_24": {
-      "text": "查案正道第24场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -574,10 +666,14 @@
           "text": "直面抉择",
           "next": "ending_justice_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 24
+      }
     },
     "justice_25": {
-      "text": "查案正道第25场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -594,10 +690,14 @@
             "clue_letter"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 25
+      }
     },
     "justice_26": {
-      "text": "查案正道第26场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -607,10 +707,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 26
+      }
     },
     "justice_27": {
-      "text": "查案正道第27场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -624,10 +728,14 @@
           "text": "追访关键人物",
           "next": "justice_unique_6"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 27
+      }
     },
     "justice_28": {
-      "text": "查案正道第28场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -644,10 +752,14 @@
             "clue_account"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 28
+      }
     },
     "justice_29": {
-      "text": "查案正道第29场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -657,10 +769,14 @@
           "text": "回到人群中整理思路",
           "next": "justice_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 29
+      }
     },
     "justice_30": {
-      "text": "查案正道第30场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -673,10 +789,14 @@
             "state_branch"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "justice",
+        "index": 30
+      }
     },
     "brothel_1": {
-      "text": "风月暗线第1场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -686,10 +806,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 1
+      }
     },
     "brothel_2": {
-      "text": "风月暗线第2场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -702,10 +826,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 2
+      }
     },
     "brothel_3": {
-      "text": "风月暗线第3场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -715,10 +843,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 3
+      }
     },
     "brothel_4": {
-      "text": "风月暗线第4场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -732,10 +864,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_1"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 4
+      }
     },
     "brothel_5": {
-      "text": "风月暗线第5场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -748,10 +884,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 5
+      }
     },
     "brothel_6": {
-      "text": "风月暗线第6场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -775,10 +915,14 @@
             "state_trust_courtesan"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 6
+      }
     },
     "brothel_7": {
-      "text": "风月暗线第7场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -791,10 +935,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 7
+      }
     },
     "brothel_8": {
-      "text": "风月暗线第8场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -804,10 +952,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 8
+      }
     },
     "brothel_9": {
-      "text": "风月暗线第9场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -824,10 +976,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_2"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 9
+      }
     },
     "brothel_10": {
-      "text": "风月暗线第10场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -854,10 +1010,14 @@
             "state_clue_mask"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 10
+      }
     },
     "brothel_11": {
-      "text": "风月暗线第11场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -867,10 +1027,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 11
+      }
     },
     "brothel_12": {
-      "text": "风月暗线第12场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -894,10 +1058,14 @@
             "state_trust_courtesan"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 12
+      }
     },
     "brothel_13": {
-      "text": "风月暗线第13场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -911,10 +1079,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_3"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 13
+      }
     },
     "brothel_14": {
-      "text": "风月暗线第14场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -924,10 +1096,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 14
+      }
     },
     "brothel_15": {
-      "text": "风月暗线第15场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -944,10 +1120,14 @@
             "state_blackmail"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 15
+      }
     },
     "brothel_16": {
-      "text": "风月暗线第16场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -965,10 +1145,14 @@
             "clue_mask"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 16
+      }
     },
     "brothel_17": {
-      "text": "风月暗线第17场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -978,10 +1162,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 17
+      }
     },
     "brothel_18": {
-      "text": "风月暗线第18场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -999,10 +1187,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 18
+      }
     },
     "brothel_19": {
-      "text": "风月暗线第19场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1012,10 +1204,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 19
+      }
     },
     "brothel_20": {
-      "text": "风月暗线第20场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1032,10 +1228,14 @@
             "state_blackmail"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 20
+      }
     },
     "brothel_21": {
-      "text": "风月暗线第21场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1052,10 +1252,14 @@
             "trust_courtesan"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 21
+      }
     },
     "brothel_22": {
-      "text": "风月暗线第22场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1069,10 +1273,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_5"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 22
+      }
     },
     "brothel_23": {
-      "text": "风月暗线第23场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1082,10 +1290,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 23
+      }
     },
     "brothel_24": {
-      "text": "风月暗线第24场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1099,10 +1311,14 @@
           "text": "直面抉择",
           "next": "ending_brothel_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 24
+      }
     },
     "brothel_25": {
-      "text": "风月暗线第25场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1119,10 +1335,14 @@
             "clue_mask"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 25
+      }
     },
     "brothel_26": {
-      "text": "风月暗线第26场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1136,10 +1356,14 @@
           "text": "追访关键人物",
           "next": "brothel_unique_6"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 26
+      }
     },
     "brothel_27": {
-      "text": "风月暗线第27场：赌坊丁低声提醒你，线索正被权势之网吞没。",
+      "text": "赌坊丁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1149,10 +1373,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 27
+      }
     },
     "brothel_28": {
-      "text": "风月暗线第28场：李书生低声提醒你，线索正被权势之网吞没。",
+      "text": "李书生低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1169,10 +1397,14 @@
             "state_blackmail"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 28
+      }
     },
     "brothel_29": {
-      "text": "风月暗线第29场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1182,10 +1414,14 @@
           "text": "回到人群中整理思路",
           "next": "brothel_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 29
+      }
     },
     "brothel_30": {
-      "text": "风月暗线第30场：阮花魁低声提醒你，线索正被权势之网吞没。",
+      "text": "阮花魁低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1198,10 +1434,14 @@
             "state_branch"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "brothel",
+        "index": 30
+      }
     },
     "fugitive_1": {
-      "text": "逃亡求生第1场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1211,10 +1451,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 1
+      }
     },
     "fugitive_2": {
-      "text": "逃亡求生第2场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1227,10 +1471,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 2
+      }
     },
     "fugitive_3": {
-      "text": "逃亡求生第3场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1240,10 +1488,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 3
+      }
     },
     "fugitive_4": {
-      "text": "逃亡求生第4场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1257,10 +1509,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_1"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 4
+      }
     },
     "fugitive_5": {
-      "text": "逃亡求生第5场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1273,10 +1529,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 5
+      }
     },
     "fugitive_6": {
-      "text": "逃亡求生第6场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1300,10 +1560,14 @@
             "state_state_fugitive"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 6
+      }
     },
     "fugitive_7": {
-      "text": "逃亡求生第7场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1316,10 +1580,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 7
+      }
     },
     "fugitive_8": {
-      "text": "逃亡求生第8场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1329,10 +1597,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 8
+      }
     },
     "fugitive_9": {
-      "text": "逃亡求生第9场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1349,10 +1621,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_2"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 9
+      }
     },
     "fugitive_10": {
-      "text": "逃亡求生第10场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1379,10 +1655,14 @@
             "state_clue_witness"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 10
+      }
     },
     "fugitive_11": {
-      "text": "逃亡求生第11场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1392,10 +1672,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 11
+      }
     },
     "fugitive_12": {
-      "text": "逃亡求生第12场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1419,10 +1703,14 @@
             "state_state_fugitive"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 12
+      }
     },
     "fugitive_13": {
-      "text": "逃亡求生第13场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1436,10 +1724,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_3"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 13
+      }
     },
     "fugitive_14": {
-      "text": "逃亡求生第14场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1449,10 +1741,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 14
+      }
     },
     "fugitive_15": {
-      "text": "逃亡求生第15场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1469,10 +1765,14 @@
             "item_token"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 15
+      }
     },
     "fugitive_16": {
-      "text": "逃亡求生第16场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1490,10 +1790,14 @@
             "item_token"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 16
+      }
     },
     "fugitive_17": {
-      "text": "逃亡求生第17场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1503,10 +1807,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 17
+      }
     },
     "fugitive_18": {
-      "text": "逃亡求生第18场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1524,10 +1832,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 18
+      }
     },
     "fugitive_19": {
-      "text": "逃亡求生第19场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1537,10 +1849,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 19
+      }
     },
     "fugitive_20": {
-      "text": "逃亡求生第20场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1557,10 +1873,14 @@
             "item_token"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 20
+      }
     },
     "fugitive_21": {
-      "text": "逃亡求生第21场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1577,10 +1897,14 @@
             "state_fugitive"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 21
+      }
     },
     "fugitive_22": {
-      "text": "逃亡求生第22场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1594,10 +1918,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_5"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 22
+      }
     },
     "fugitive_23": {
-      "text": "逃亡求生第23场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1607,10 +1935,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 23
+      }
     },
     "fugitive_24": {
-      "text": "逃亡求生第24场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1624,10 +1956,14 @@
           "text": "直面抉择",
           "next": "ending_fugitive_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 24
+      }
     },
     "fugitive_25": {
-      "text": "逃亡求生第25场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1644,10 +1980,14 @@
             "clue_witness"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 25
+      }
     },
     "fugitive_26": {
-      "text": "逃亡求生第26场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1661,10 +2001,14 @@
           "text": "追访关键人物",
           "next": "fugitive_unique_6"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 26
+      }
     },
     "fugitive_27": {
-      "text": "逃亡求生第27场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1674,10 +2018,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 27
+      }
     },
     "fugitive_28": {
-      "text": "逃亡求生第28场：赵掌柜低声提醒你，线索正被权势之网吞没。",
+      "text": "赵掌柜低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1694,10 +2042,14 @@
             "item_token"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 28
+      }
     },
     "fugitive_29": {
-      "text": "逃亡求生第29场：船夫葛低声提醒你，线索正被权势之网吞没。",
+      "text": "船夫葛低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1707,10 +2059,14 @@
           "text": "回到人群中整理思路",
           "next": "fugitive_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 29
+      }
     },
     "fugitive_30": {
-      "text": "逃亡求生第30场：沈医官低声提醒你，线索正被权势之网吞没。",
+      "text": "沈医官低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1723,10 +2079,14 @@
             "state_branch"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "fugitive",
+        "index": 30
+      }
     },
     "revenge_1": {
-      "text": "反杀复仇第1场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1736,10 +2096,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 1
+      }
     },
     "revenge_2": {
-      "text": "反杀复仇第2场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1752,10 +2116,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 2
+      }
     },
     "revenge_3": {
-      "text": "反杀复仇第3场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1765,10 +2133,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 3
+      }
     },
     "revenge_4": {
-      "text": "反杀复仇第4场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1782,10 +2154,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_1"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 4
+      }
     },
     "revenge_5": {
-      "text": "反杀复仇第5场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1798,10 +2174,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 5
+      }
     },
     "revenge_6": {
-      "text": "反杀复仇第6场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1825,10 +2205,14 @@
             "state_clue_dagger"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 6
+      }
     },
     "revenge_7": {
-      "text": "反杀复仇第7场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1841,10 +2225,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 7
+      }
     },
     "revenge_8": {
-      "text": "反杀复仇第8场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1854,10 +2242,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 8
+      }
     },
     "revenge_9": {
-      "text": "反杀复仇第9场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查并收下线索",
@@ -1874,10 +2266,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_2"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 9
+      }
     },
     "revenge_10": {
-      "text": "反杀复仇第10场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1904,10 +2300,14 @@
             "state_clue_dagger"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 10
+      }
     },
     "revenge_11": {
-      "text": "反杀复仇第11场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1917,10 +2317,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 11
+      }
     },
     "revenge_12": {
-      "text": "反杀复仇第12场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1944,10 +2348,14 @@
             "state_clue_dagger"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 12
+      }
     },
     "revenge_13": {
-      "text": "反杀复仇第13场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1961,10 +2369,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_3"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 13
+      }
     },
     "revenge_14": {
-      "text": "反杀复仇第14场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1974,10 +2386,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 14
+      }
     },
     "revenge_15": {
-      "text": "反杀复仇第15场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -1994,10 +2410,14 @@
             "state_revenge"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 15
+      }
     },
     "revenge_16": {
-      "text": "反杀复仇第16场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2007,10 +2427,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 16
+      }
     },
     "revenge_17": {
-      "text": "反杀复仇第17场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2020,10 +2444,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 17
+      }
     },
     "revenge_18": {
-      "text": "反杀复仇第18场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2041,10 +2469,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 18
+      }
     },
     "revenge_19": {
-      "text": "反杀复仇第19场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2054,10 +2486,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 19
+      }
     },
     "revenge_20": {
-      "text": "反杀复仇第20场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2074,10 +2510,14 @@
             "trust_guard"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 20
+      }
     },
     "revenge_21": {
-      "text": "反杀复仇第21场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2094,10 +2534,14 @@
             "clue_dagger"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 21
+      }
     },
     "revenge_22": {
-      "text": "反杀复仇第22场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2111,10 +2555,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_5"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 22
+      }
     },
     "revenge_23": {
-      "text": "反杀复仇第23场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2124,10 +2572,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 23
+      }
     },
     "revenge_24": {
-      "text": "反杀复仇第24场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2141,10 +2593,14 @@
           "text": "直面抉择",
           "next": "ending_revenge_4"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 24
+      }
     },
     "revenge_25": {
-      "text": "反杀复仇第25场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2162,10 +2618,14 @@
             "state_revenge"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 25
+      }
     },
     "revenge_26": {
-      "text": "反杀复仇第26场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2179,10 +2639,14 @@
           "text": "追访关键人物",
           "next": "revenge_unique_6"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 26
+      }
     },
     "revenge_27": {
-      "text": "反杀复仇第27场：内侍霍低声提醒你，线索正被权势之网吞没。",
+      "text": "内侍霍低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2192,10 +2656,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 27
+      }
     },
     "revenge_28": {
-      "text": "反杀复仇第28场：苏娘子低声提醒你，线索正被权势之网吞没。",
+      "text": "苏娘子低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2212,10 +2680,14 @@
             "trust_guard"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 28
+      }
     },
     "revenge_29": {
-      "text": "反杀复仇第29场：周都头低声提醒你，线索正被权势之网吞没。",
+      "text": "周都头低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2225,10 +2697,14 @@
           "text": "回到人群中整理思路",
           "next": "revenge_hub"
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 29
+      }
     },
     "revenge_30": {
-      "text": "反杀复仇第30场：包校尉低声提醒你，线索正被权势之网吞没。",
+      "text": "包校尉低声提醒你，线索正被权势之网吞没。",
       "choices": [
         {
           "text": "继续追查",
@@ -2241,7 +2717,11 @@
             "state_branch"
           ]
         }
-      ]
+      ],
+      "meta": {
+        "route": "revenge",
+        "index": 30
+      }
     },
     "ending_justice_1": {
       "text": "结局【堂前雪】：你凭证据定罪，堂前雪未化，正道暂得昭彰。这一夜的雨还未停歇，街巷却比雨更冷。你回想每一次选择，明白有些代价是从第一步就注定的。无论结局如何，汴梁仍在风声里继续运转。",
